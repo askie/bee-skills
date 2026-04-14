@@ -20,7 +20,7 @@ npm login
 
 ```json
 {
-  "name": "@你的用户名/dhf-rpa-skills"
+  "name": "@zx1998/dhf-rpa-skills"
 }
 ```
 
@@ -38,7 +38,7 @@ npm login
 
 ```json
 {
-  "name": "@你的用户名/dhf-rpa-skills",
+  "name": "@zx1998/dhf-rpa-skills",
   "version": "1.0.0",
   "description": "DHF Agent RPA 自动化技能包",
   "private": false,
@@ -49,7 +49,7 @@ npm login
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/你的用户名/dhf-rpa-skills.git"
+    "url": "https://github.com/zx1998/dhf-rpa-skills.git"
   },
   "keywords": ["dhf", "rpa", "automation"],
   "files": [
@@ -171,13 +171,13 @@ npm config set access public
 
 ```bash
 # 查看包信息
-npm view @你的用户名/dhf-rpa-skills
+npm view @zx1998/dhf-rpa-skills
 
 # 查看特定版本
-npm view @你的用户名/dhf-rpa-skills@1.0.0
+npm view @zx1998/dhf-rpa-skills@1.0.0
 
 # 在浏览器中访问
-# https://www.npmjs.com/package/@你的用户名/dhf-rpa-skills
+# https://www.npmjs.com/package/@zx1998/dhf-rpa-skills
 ```
 
 ## 用户安装方式
@@ -187,21 +187,21 @@ npm view @你的用户名/dhf-rpa-skills@1.0.0
 ### 方式 1：全局安装
 
 ```bash
-npm install -g @你的用户名/dhf-rpa-skills
+npm install -g @zx1998/dhf-rpa-skills
 dhf-rpa-skills install
 ```
 
 ### 方式 2：本地安装
 
 ```bash
-npm install @你的用户名/dhf-rpa-skills
+npm install @zx1998/dhf-rpa-skills
 npx dhf-rpa-skills install
 ```
 
 ### 方式 3：npx 直接使用（推荐）
 
 ```bash
-npx @你的用户名/dhf-rpa-skills install
+npx @zx1998/dhf-rpa-skills install
 ```
 
 ## 更新发布
@@ -230,13 +230,13 @@ git push --tags
 ⚠️ **注意：** 只能撤销 24 小时内发布的版本
 
 ```bash
-npm unpublish @你的用户名/dhf-rpa-skills@1.0.0
+npm unpublish @zx1998/dhf-rpa-skills@1.0.0
 ```
 
 或者撤销整个包：
 
 ```bash
-npm unpublish @你的用户名/dhf-rpa-skills
+npm unpublish @zx1998/dhf-rpa-skills
 ```
 
 ## 常见问题
@@ -246,7 +246,7 @@ npm unpublish @你的用户名/dhf-rpa-skills
 **原因：** 包名已被占用
 
 **解决方案：**
-- 使用 scoped 包名：`@你的用户名/dhf-rpa-skills`
+- 使用 scoped 包名：`@zx1998/dhf-rpa-skills`
 - 或更换包名
 
 ### Q2: 发布失败 "402 Payment Required"
@@ -267,20 +267,20 @@ npm publish --access public
 2. 或使用 `npm deprecate` 标记旧版本
 
 ```bash
-npm deprecate @你的用户名/dhf-rpa-skills@"<1.0.1" "此版本存在问题，请升级到 1.0.1+"
+npm deprecate @zx1998/dhf-rpa-skills@"<1.0.1" "此版本存在问题，请升级到 1.0.1+"
 ```
 
 ### Q4: 如何转移包所有权？
 
 ```bash
 # 添加维护者
-npm owner add username @你的用户名/dhf-rpa-skills
+npm owner add username @zx1998/dhf-rpa-skills
 
 # 移除维护者
-npm owner remove username @你的用户名/dhf-rpa-skills
+npm owner remove username @zx1998/dhf-rpa-skills
 
 # 查看所有者
-npm owner ls @你的用户名/dhf-rpa-skills
+npm owner ls @zx1998/dhf-rpa-skills
 ```
 
 ## npm Scripts 快速参考

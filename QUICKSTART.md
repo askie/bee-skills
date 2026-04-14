@@ -5,7 +5,7 @@
 ### 步骤 1：克隆仓库
 
 ```bash
-git clone https://github.com/你的用户名/dhf-rpa-skills.git
+git clone https://github.com/zx1998/dhf-rpa-skills.git
 cd dhf-rpa-skills
 ```
 
@@ -58,5 +58,5 @@ npm run install
 ## 需要帮助？
 
 - 查看 [完整安装指南](INSTALL.md)
-- 提交 [GitHub Issues](https://github.com/你的用户名/dhf-rpa-skills/issues)
+- 提交 [GitHub Issues](https://github.com/zx1998/dhf-rpa-skills/issues)
 - 访问 [DHF 帮助中心](https://dhf.pub/en/help)

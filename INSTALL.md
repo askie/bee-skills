@@ -12,7 +12,7 @@
 ### 1. 克隆仓库
 
 ```bash
-git clone https://github.com/你的用户名/dhf-rpa-skills.git
+git clone https://github.com/zx1998/dhf-rpa-skills.git
 cd dhf-rpa-skills
 ```
 
@@ -146,7 +146,7 @@ npm run sync
 
 | 系统 | 技能目录 |
 |------|----------|
-| Windows | `C:\Users\你的用户名\.claude\skills\` |
+| Windows | `C:\Users\zx1998\.claude\skills\` |
 | macOS | `~/.claude/skills/` |
 | Linux | `~/.claude/skills/` |
 
@@ -159,7 +159,7 @@ npm run sync
 手动创建目录：
 ```bash
 # Windows
-mkdir C:\Users\你的用户名\.claude\skills
+mkdir C:\Users\zx1998\.claude\skills
 
 # macOS/Linux
 mkdir -p ~/.claude/skills
@@ -206,7 +206,7 @@ cd ..
 rm -rf dhf-rpa-skills
 
 # 3. 手动删除技能目录（如果有残留）
-# Windows: C:\Users\你的用户名\.claude\skills\
+# Windows: C:\Users\zx1998\.claude\skills\
 # macOS/Linux: ~/.claude/skills/
 ```
 
@@ -228,5 +228,5 @@ npm run sync
 ## 需要帮助？
 
 - 查看 [README.md](README.md)
-- 提交 [GitHub Issues](https://github.com/你的用户名/dhf-rpa-skills/issues)
+- 提交 [GitHub Issues](https://github.com/zx1998/dhf-rpa-skills/issues)
 - 访问 [DHF 帮助中心](https://dhf.pub/en/help)

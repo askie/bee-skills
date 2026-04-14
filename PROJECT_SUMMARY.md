@@ -154,7 +154,7 @@ git commit -m "feat: 初始化 DHF RPA Skills 按需安装系统"
 3. 推送代码
 
 ```bash
-git remote add origin https://github.com/你的用户名/dhf-rpa-skills.git
+git remote add origin https://github.com/zx1998/dhf-rpa-skills.git
 git branch -M main
 git push -u origin main
 ```
@@ -181,7 +181,7 @@ npm run install
 npm login
 
 # 更新 package.json 中的包名（使用 scoped 包名）
-# "name": "@你的用户名/dhf-rpa-skills"
+# "name": "@zx1998/dhf-rpa-skills"
 
 # 运行发布前检查
 npm run prepublishOnly
@@ -282,7 +282,7 @@ git push
 
 ## 联系方式
 
-- GitHub: https://github.com/你的用户名/dhf-rpa-skills
+- GitHub: https://github.com/zx1998/dhf-rpa-skills
 - Email: community@dhf.pub
 
 ---

@@ -1,5 +1,5 @@
 {
-  "name": "dhf-rpa-skills",
+  "name": "@zx1998/dhf-rpa-skills",
   "version": "1.0.0",
   "description": "DHF Agent RPA 自动化技能包 - 按需安装",
   "private": false,
@@ -33,19 +33,19 @@
     "workflow"
   ],
   "author": {
-    "name": "DHF RPA Community",
-    "email": "community@dhf.pub",
-    "url": "https://github.com/你的用户名/dhf-rpa-skills"
+    "name": "zx1998",
+    "email": "zxtest7985@163.com",
+    "url": "https://github.com/zx1998/dhf-rpa-skills"
   },
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/你的用户名/dhf-rpa-skills.git"
+    "url": "https://github.com/zx1998/dhf-rpa-skills.git"
   },
   "bugs": {
-    "url": "https://github.com/你的用户名/dhf-rpa-skills/issues"
+    "url": "https://github.com/zx1998/dhf-rpa-skills/issues"
   },
-  "homepage": "https://github.com/你的用户名/dhf-rpa-skills#readme",
+  "homepage": "https://github.com/zx1998/dhf-rpa-skills#readme",
   "dependencies": {
     "inquirer": "^9.2.0",
     "chalk": "^5.3.0",
