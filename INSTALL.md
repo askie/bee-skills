@@ -12,7 +12,7 @@
 ### 1. 克隆仓库
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/dhf-rpa-skills.git
+git clone https://github.com/zx1998-code/dhf-rpa-skills.git
 cd dhf-rpa-skills
 ```
 
@@ -228,5 +228,5 @@ npm run sync
 ## 需要帮助？
 
 - 查看 [README.md](README.md)
-- 提交 [GitHub Issues](https://github.com/YOUR_USERNAME/dhf-rpa-skills/issues)
+- 提交 [GitHub Issues](https://github.com/zx1998-code/dhf-rpa-skills/issues)
 - 访问 [DHF 帮助中心](https://dhf.pub/en/help)
