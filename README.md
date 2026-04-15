@@ -35,7 +35,15 @@
 2. **DHF Agent** - 安装并运行 DHF Agent ([获取地址](https://dhf.pub))
 3. **Node.js** - 版本 >= 18.0.0
 
-### 安装步骤
+### 安装方式
+
+#### 方式 1：使用 npx（推荐）
+
+```bash
+npx @zx1998/dhf-rpa-installer install
+```
+
+#### 方式 2：从 GitHub 克隆
 
 ```bash
 # 1. 克隆仓库
