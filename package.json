@@ -1,6 +1,6 @@
 {
   "name": "@zx1998/dhf-rpa-installer",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "DHF Agent RPA 自动化技能包 - 按需安装",
   "private": false,
   "type": "module",
