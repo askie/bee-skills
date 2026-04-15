@@ -20,12 +20,47 @@
 
 ## 包含的技能
 
-| 技能 | 描述 | 类别 |
+### 测试类 (1)
+| 技能 | 描述 | 命令 |
 |------|------|------|
-| dhf-rpa-test-workflow | RPA 测试工作流 | 测试 |
-| dhf-163mail-task | 163 邮件发送 | 邮件 |
-| dhf-outlook-mail-task | Outlook 邮件发送 | 邮件 |
-| dhf-qq-mail-task | QQ 邮件发送 | 邮件 |
+| RPA 测试工作流 | 测试 DHF Agent 基础连接和 RPA 操作 | `/dhf-rpa-test-workflow` |
+
+### 邮件类 (3)
+| 技能 | 描述 | 命令 |
+|------|------|------|
+| 163 邮件发送 | 自动化发送 163 邮件 | `/dhf-163mail-task` |
+| Outlook 邮件发送 | 自动化发送 Outlook 邮件 | `/dhf-outlook-mail-task` |
+| QQ 邮件发送 | 自动化发送 QQ 邮件 | `/dhf-rpa-qq-mail-task` |
+
+### 新闻资讯类 (6)
+| 技能 | 描述 | 命令 |
+|------|------|------|
+| 163 网易新闻 | 获取 163 网易新闻资讯 | `/dhf-163news-task` |
+| 百度新闻 | 获取百度新闻资讯 | `/dhf-bing-news-task` |
+| Google 新闻 | 获取 Google 新闻资讯 | `/dhf-google-news-task` |
+| 掘金新闻 | 获取掘金新闻资讯 | `/dhf-juejin-news-task` |
+| 腾讯新闻 | 获取腾讯新闻资讯 | `/dhf-tencent-news-task` |
+| 今日头条新闻 | 获取今日头条资讯 | `/dhf-toutiao-news-task` |
+
+### 搜索类 (4)
+| 技能 | 描述 | 命令 |
+|------|------|------|
+| 抖音热搜 | 获取抖音热搜榜单 | `/dhf-douyin-hot-search-task` |
+| Google 热搜 | 获取 Google 热搜榜单 | `/dhf-google-hot-topics-task` |
+| 微博热搜 | 获取微博热搜榜单 | `/dhf-weibo-hot-search-task` |
+| 知乎热搜 | 获取知乎热榜 | `/dhf-zhihu-hot-search-task` |
+
+### 趋势类 (1)
+| 技能 | 描述 | 命令 |
+|------|------|------|
+| Google 趋势 | 获取 Google 搜索趋势 | `/dhf-google-trends-task` |
+
+### 工具类 (1)
+| 技能 | 描述 | 命令 |
+|------|------|------|
+| 安装 DHF Agent | 安装 DHF Bee Agent 浏览器插件 | `/dhf-install-agent` |
+
+**总计：18 个技能**
 
 ## 快速开始
 
@@ -37,10 +72,16 @@
 
 ### 安装方式
 
-#### 方式 1：使用 npx（推荐）
+#### 方式 1：使用 npm（推荐）
 
 ```bash
-npx @zx1998/dhf-rpa-installer install
+# 全局安装（所有项目可用）
+npm install -g @zx1998/dhf-rpa-installer
+dhf-rpa-install
+
+# 或在项目中安装
+npm install @zx1998/dhf-rpa-installer
+npm run install
 ```
 
 #### 方式 2：从 GitHub 克隆
@@ -53,11 +94,32 @@ cd dhf-rpa-skills
 # 2. 安装依赖
 npm install
 
-# 3. 运行交互式安装器
+# 3. 运行智能安装器（自动检测全局/项目级）
 npm run install
 
 # 4. 选择你要安装的技能
 # 5. 重新启动 Claude Code
+```
+
+#### 安装模式说明
+
+**全局安装**（默认）：
+- 安装位置：`C:\Users\YourUser\.claude\skills`
+- 所有项目都可以使用这些技能
+- 使用符号链接节省空间
+
+**项目级安装**：
+- 安装位置：`项目目录\.claude\skills`
+- 仅当前项目可用
+- 复制文件到项目目录
+
+**手动指定模式**：
+```bash
+# 强制全局安装
+npm run install:global
+
+# 强制项目级安装
+npm run install:project
 ```
 
 ### 查看已安装技能
@@ -81,10 +143,26 @@ npm run list
 
 | 命令 | 说明 |
 |------|------|
-| `npm run install` | 交互式安装技能 |
+| `npm run install` | 智能安装（自动检测全局/项目级） |
+| `npm run install:global` | 强制全局安装 |
+| `npm run install:project` | 强制项目级安装 |
+| `npm run install:interactive` | 交互式安装（旧版） |
 | `npm run uninstall` | 卸载已安装的技能 |
 | `npm run list` | 查看所有技能 |
 | `npm run sync` | 同步已安装的技能 |
+
+## AI 助手安装指南
+
+如果你是 AI 助手（Claude Code、GLM 等），请阅读 **[AI-INSTALL-GUIDE.md](AI-INSTALL-GUIDE.md)** 了解正确的安装流程。
+
+**快速命令**：
+```bash
+# 安装指定技能
+node scripts/install-smart.js --skill=dhf-rpa-qq-mail-task
+
+# 静默安装（用于自动化）
+node scripts/install-smart.js --silent --skill=dhf-rpa-qq-mail-task,dhf-google-news-task
+```
 
 ## 项目结构
 
@@ -117,6 +195,32 @@ dhf-rpa-skills/
 
 ## 故障排除
 
+### AI 助手没有正确安装技能
+
+如果你让 AI 助手安装技能，但它没有正确安装到期望的位置，请：
+
+1. **直接运行安装脚本**：
+   ```bash
+   cd E:\aiwork\skillsGenerate\dhf-rpa-skills
+   npm run install
+   ```
+
+2. **检查安装位置**：
+   - 全局：`C:\Users\Administrator\.claude\skills`
+   - 项目：`E:\aiwork\skillsGenerate\.claude\skills`
+
+3. **验证 marketplace.json**：
+   ```bash
+   # 全局
+   cat C:\Users\Administrator\.claude\plugins\marketplaces\dhf-rpa-skills.json
+
+   # 项目
+   cat E:\aiwork\skillsGenerate\.claude\plugins\marketplaces\dhf-rpa-skills.json
+   ```
+
+4. **告诉 AI 使用正确命令**：
+   > 请运行：`cd E:\aiwork\skillsGenerate\dhf-rpa-skills && npm run install`
+
 ### 安装失败
 
 确保：
@@ -129,7 +233,8 @@ dhf-rpa-skills/
 检查：
 - 已运行 `npm run install`
 - 已重启 Claude Code
-- `~/.claude/skills/` 中存在技能链接
+- `~/.claude/skills/` 或 `项目\.claude\skills/` 中存在技能链接
+- marketplace.json 包含正确的技能列表
 
 ## 相关资源
 

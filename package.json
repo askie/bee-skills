@@ -5,8 +5,11 @@
   "private": false,
   "type": "module",
   "scripts": {
-    "install": "node scripts/install.js",
-    "install:batch": "node scripts/install.js --batch",
+    "install": "node cli.js",
+    "install:global": "node cli.js --global",
+    "install:project": "node cli.js --project",
+    "install:skill": "node cli.js",
+    "install:interactive": "node scripts/install.js",
     "uninstall": "node scripts/uninstall.js",
     "sync": "node scripts/sync.js",
     "list": "node scripts/list.js",
@@ -59,7 +62,10 @@
     "scripts/",
     "skills/",
     "packages/",
+    "cli.js",
     "README.md",
+    "AI-INSTALL-GUIDE.md",
+    "INSTALLER.md",
     "LICENSE",
     "INSTALL.md"
   ]
