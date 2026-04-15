@@ -1,0 +1,19 @@
+{
+  "name": "dhf-google-hot-topics-task",
+  "version": "1.0.0",
+  "description": "DHF Agent Google 热门话题抓取任务",
+  "main": "scripts/main.ts",
+  "scripts": {
+    "start": "bun run scripts/main.ts"
+  },
+  "keywords": [
+    "dhf",
+    "google",
+    "trends",
+    "热门话题",
+    "hot topics",
+    "rpa"
+  ],
+  "author": "",
+  "license": "MIT"
+}

@@ -1,0 +1,19 @@
+{
+  "name": "dhf-toutiao-news-task",
+  "version": "1.0.0",
+  "description": "DHF Agent 今日头条热门新闻抓取任务",
+  "main": "scripts/main.ts",
+  "scripts": {
+    "start": "bun run scripts/main.ts"
+  },
+  "keywords": [
+    "dhf",
+    "toutiao",
+    "今日头条",
+    "news",
+    "新闻",
+    "rpa"
+  ],
+  "author": "",
+  "license": "MIT"
+}

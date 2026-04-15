@@ -1,0 +1,37 @@
+{
+  "name": "@dhf-rpa/zhihu-hot-search",
+  "version": "1.0.1",
+  "description": "DHF Agent 知乎热榜抓取任务",
+  "type": "module",
+  "main": "scripts/main.js",
+  "bin": {
+    "dhf-zhihu-hot-search": "scripts/cli.js"
+  },
+  "scripts": {
+    "start": "node scripts/cli.js"
+  },
+  "keywords": [
+    "dhf",
+    "rpa",
+    "zhihu",
+    "hot-search",
+    "热榜"
+  ],
+  "author": "DHF RPA Skills",
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.4"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-username/dhf-rpa-skills.git",
+    "directory": "dhf-zhihu-hot-search-task"
+  },
+  "homepage": "https://github.com/your-username/dhf-rpa-skills#readme",
+  "bugs": {
+    "url": "https://github.com/your-username/dhf-rpa-skills/issues"
+  }
+}

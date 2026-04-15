@@ -1,0 +1,19 @@
+{
+  "name": "dhf-douyin-hot-search-task",
+  "version": "1.0.0",
+  "description": "DHF Agent 抖音热搜抓取任务",
+  "main": "scripts/main.ts",
+  "scripts": {
+    "start": "bun run scripts/main.ts"
+  },
+  "keywords": [
+    "dhf",
+    "douyin",
+    "抖音",
+    "hot-search",
+    "热搜",
+    "rpa"
+  ],
+  "author": "",
+  "license": "MIT"
+}

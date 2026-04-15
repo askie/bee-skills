@@ -14,6 +14,7 @@ const __dirname = path.dirname(__filename);
 
 // 技能注册表
 const SKILLS_REGISTRY = [
+  // 测试类
   {
     id: 'dhf-rpa-test-workflow',
     name: 'RPA 测试工作流',
@@ -25,8 +26,9 @@ const SKILLS_REGISTRY = [
     tags: ['test', 'workflow', '基础'],
     command: 'dhf-rpa-test-workflow'
   },
+  // 邮件类
   {
-    id: 'dhf-rpa-163mail-task',
+    id: 'dhf-163mail-task',
     name: '163 邮件发送',
     description: '自动化发送 163 邮件',
     category: '邮件',
@@ -37,7 +39,7 @@ const SKILLS_REGISTRY = [
     command: 'dhf-163mail-task'
   },
   {
-    id: 'dhf-rpa-outlook-mail-task',
+    id: 'dhf-outlook-mail-task',
     name: 'Outlook 邮件发送',
     description: '自动化发送 Outlook 邮件',
     category: '邮件',
@@ -48,7 +50,7 @@ const SKILLS_REGISTRY = [
     command: 'dhf-outlook-mail-task'
   },
   {
-    id: 'dhf-rpa-qq-mail-task',
+    id: 'dhf-qq-mail-task',
     name: 'QQ 邮件发送',
     description: '自动化发送 QQ 邮件',
     category: '邮件',
@@ -57,6 +59,142 @@ const SKILLS_REGISTRY = [
     size: '1.5MB',
     tags: ['mail', 'qq', 'email'],
     command: 'dhf-qq-mail-task'
+  },
+  // 新闻资讯类
+  {
+    id: 'dhf-163news-task',
+    name: '163 网易新闻',
+    description: '获取 163 网易新闻资讯',
+    category: '新闻',
+    version: '1.0.0',
+    dependencies: [],
+    size: '2MB',
+    tags: ['news', '163', '资讯'],
+    command: 'dhf-163news-task'
+  },
+  {
+    id: 'dhf-bing-news-task',
+    name: '百度新闻',
+    description: '获取百度新闻资讯',
+    category: '新闻',
+    version: '1.0.0',
+    dependencies: [],
+    size: '2MB',
+    tags: ['news', 'baidu', '资讯'],
+    command: 'dhf-bing-news-task'
+  },
+  {
+    id: 'dhf-google-news-task',
+    name: 'Google 新闻',
+    description: '获取 Google 新闻资讯',
+    category: '新闻',
+    version: '1.0.0',
+    dependencies: [],
+    size: '2MB',
+    tags: ['news', 'google', '资讯'],
+    command: 'dhf-google-news-task'
+  },
+  {
+    id: 'dhf-juejin-news-task',
+    name: '掘金新闻',
+    description: '获取掘金新闻资讯',
+    category: '新闻',
+    version: '1.0.0',
+    dependencies: [],
+    size: '2MB',
+    tags: ['news', 'juejin', '资讯'],
+    command: 'dhf-juejin-news-task'
+  },
+  {
+    id: 'dhf-tencent-news-task',
+    name: '腾讯新闻',
+    description: '获取腾讯新闻资讯',
+    category: '新闻',
+    version: '1.0.0',
+    dependencies: [],
+    size: '2MB',
+    tags: ['news', 'tencent', '资讯'],
+    command: 'dhf-tencent-news-task'
+  },
+  {
+    id: 'dhf-toutiao-news-task',
+    name: '今日头条新闻',
+    description: '获取今日头条资讯',
+    category: '新闻',
+    version: '1.0.0',
+    dependencies: [],
+    size: '2MB',
+    tags: ['news', 'toutiao', '资讯'],
+    command: 'dhf-toutiao-news-task'
+  },
+  // 搜索类
+  {
+    id: 'dhf-douyin-hot-search-task',
+    name: '抖音热搜',
+    description: '获取抖音热搜榜单',
+    category: '搜索',
+    version: '1.0.0',
+    dependencies: [],
+    size: '2MB',
+    tags: ['search', 'douyin', '热搜'],
+    command: 'dhf-douyin-hot-search-task'
+  },
+  {
+    id: 'dhf-google-hot-topics-task',
+    name: 'Google 热搜',
+    description: '获取 Google 热搜榜单',
+    category: '搜索',
+    version: '1.0.0',
+    dependencies: [],
+    size: '2MB',
+    tags: ['search', 'google', '热搜'],
+    command: 'dhf-google-hot-topics-task'
+  },
+  {
+    id: 'dhf-weibo-hot-search-task',
+    name: '微博热搜',
+    description: '获取微博热搜榜单',
+    category: '搜索',
+    version: '1.0.0',
+    dependencies: [],
+    size: '2MB',
+    tags: ['search', 'weibo', '热搜'],
+    command: 'dhf-weibo-hot-search-task'
+  },
+  {
+    id: 'dhf-zhihu-hot-search-task',
+    name: '知乎热搜',
+    description: '获取知乎热榜',
+    category: '搜索',
+    version: '1.0.0',
+    dependencies: [],
+    size: '2MB',
+    tags: ['search', 'zhihu', '热榜'],
+    command: 'dhf-zhihu-hot-search-task'
+  },
+  // 趋势类
+  {
+    id: 'dhf-google-trends-task',
+    name: 'Google 趋势',
+    description: '获取 Google 搜索趋势',
+    category: '趋势',
+    version: '1.0.0',
+    dependencies: [],
+    size: '2MB',
+    tags: ['trends', 'google', '趋势'],
+    command: 'dhf-google-trends-task'
+  },
+  // 工具类
+  {
+    id: 'dhf-install-agent',
+    name: '安装 DHF Agent',
+    description: '安装 DHF Bee Agent 浏览器插件',
+    category: '工具',
+    version: '1.0.0',
+    dependencies: [],
+    size: '1MB',
+    tags: ['install', 'agent', '工具'],
+    command: 'dhf-install-agent'
   }
 ];
 

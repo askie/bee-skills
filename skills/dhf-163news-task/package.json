@@ -1,0 +1,18 @@
+{
+  "name": "dhf-163news-task",
+  "version": "1.0.0",
+  "description": "DHF Agent 网易新闻抓取任务",
+  "main": "scripts/main.ts",
+  "scripts": {
+    "start": "bun run scripts/main.ts"
+  },
+  "keywords": [
+    "dhf",
+    "netease",
+    "163",
+    "news",
+    "rpa"
+  ],
+  "author": "",
+  "license": "MIT"
+}

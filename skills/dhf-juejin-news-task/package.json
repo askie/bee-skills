@@ -1,0 +1,19 @@
+{
+  "name": "dhf-juejin-news-task",
+  "version": "1.0.0",
+  "description": "DHF Agent 掘金文章抓取任务",
+  "main": "scripts/main.ts",
+  "scripts": {
+    "start": "bun run scripts/main.ts"
+  },
+  "keywords": [
+    "dhf",
+    "juejin",
+    "掘金",
+    "news",
+    "文章",
+    "rpa"
+  ],
+  "author": "",
+  "license": "MIT"
+}

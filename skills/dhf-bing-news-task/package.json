@@ -1,0 +1,17 @@
+{
+  "name": "dhf-bing-news-task",
+  "version": "1.0.0",
+  "description": "DHF Agent 必应新闻抓取任务",
+  "main": "scripts/main.ts",
+  "scripts": {
+    "start": "bun run scripts/main.ts"
+  },
+  "keywords": [
+    "dhf",
+    "bing",
+    "news",
+    "rpa"
+  ],
+  "author": "",
+  "license": "MIT"
+}

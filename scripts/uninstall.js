@@ -12,32 +12,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 // 技能注册表（与 install.js 保持一致）
-const SKILLS_REGISTRY = [
-  {
-    id: 'dhf-rpa-test-workflow',
-    name: 'RPA 测试工作流',
-    description: '测试 DHF Agent 基础连接和 RPA 操作',
-    category: '测试'
-  },
-  {
-    id: 'dhf-rpa-163mail-task',
-    name: '163 邮件发送',
-    description: '自动化发送 163 邮件',
-    category: '邮件'
-  },
-  {
-    id: 'dhf-rpa-outlook-mail-task',
-    name: 'Outlook 邮件发送',
-    description: '自动化发送 Outlook 邮件',
-    category: '邮件'
-  },
-  {
-    id: 'dhf-rpa-qq-mail-task',
-    name: 'QQ 邮件发送',
-    description: '自动化发送 QQ 邮件',
-    category: '邮件'
-  }
-];
+const SKILLS_REGISTRY = [  { id: 'dhf-rpa-test-workflow', name: 'RPA 测试工作流', description: '测试 DHF Agent 基础连接和 RPA 操作', category: '测试' },  { id: 'dhf-163mail-task', name: '163 邮件发送', description: '自动化发送 163 邮件', category: '邮件' },  { id: 'dhf-outlook-mail-task', name: 'Outlook 邮件发送', description: '自动化发送 Outlook 邮件', category: '邮件' },  { id: 'dhf-qq-mail-task', name: 'QQ 邮件发送', description: '自动化发送 QQ 邮件', category: '邮件' },  { id: 'dhf-163news-task', name: '163 网易新闻', description: '获取 163 网易新闻资讯', category: '新闻' },  { id: 'dhf-bing-news-task', name: '百度新闻', description: '获取百度新闻资讯', category: '新闻' },  { id: 'dhf-google-news-task', name: 'Google 新闻', description: '获取 Google 新闻资讯', category: '新闻' },  { id: 'dhf-juejin-news-task', name: '掘金新闻', description: '获取掘金新闻资讯', category: '新闻' },  { id: 'dhf-tencent-news-task', name: '腾讯新闻', description: '获取腾讯新闻资讯', category: '新闻' },  { id: 'dhf-toutiao-news-task', name: '今日头条新闻', description: '获取今日头条资讯', category: '新闻' },  { id: 'dhf-douyin-hot-search-task', name: '抖音热搜', description: '获取抖音热搜榜单', category: '搜索' },  { id: 'dhf-google-hot-topics-task', name: 'Google 热搜', description: '获取 Google 热搜榜单', category: '搜索' },  { id: 'dhf-weibo-hot-search-task', name: '微博热搜', description: '获取微博热搜榜单', category: '搜索' },  { id: 'dhf-zhihu-hot-search-task', name: '知乎热搜', description: '获取知乎热榜', category: '搜索' },  { id: 'dhf-google-trends-task', name: 'Google 趋势', description: '获取 Google 搜索趋势', category: '趋势' },  { id: 'dhf-install-agent', name: '安装 DHF Agent', description: '安装 DHF Bee Agent 浏览器插件', category: '工具' }];
 
 class SkillUninstaller {
   constructor() {
