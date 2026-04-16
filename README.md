@@ -90,15 +90,17 @@
 
 ### 安装方式
 
-#### 方式 1：使用 npm（推荐）
+#### 方式 1：使用 npm 安装（推荐）
 
 ```bash
-# 全局安装（所有项目可用）
-npm install -g bee-skills
-dhf-rpa-install
+# 全局安装
+npm install -g @dhfpub/bee-skills
+
+# 安装技能
+bee-skills
 
 # 或在项目中安装
-npm install bee-skills
+npm install @dhfpub/bee-skills
 npm run install
 ```
 
