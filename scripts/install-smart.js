@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * DHF RPA Skills 智能安装器
+ * Bee Skills 智能安装器
  * 支持全局安装和项目级安装
  */
 
@@ -19,7 +19,7 @@ const SKILLS_REGISTRY = [
   {
     id: 'dhf-rpa-test-workflow',
     name: 'RPA 测试工作流',
-    description: '测试 DHF Agent 基础连接和 RPA 操作',
+    description: '测试 Bee Agent 基础连接和 RPA 操作',
     category: '测试',
     version: '1.0.0',
     size: '2MB',
@@ -158,8 +158,8 @@ const SKILLS_REGISTRY = [
   // 工具类
   {
     id: 'dhf-install-agent',
-    name: '安装 DHF Agent',
-    description: '安装 DHF Bee Agent 浏览器插件',
+    name: '安装 Bee Agent',
+    description: '安装 Bee Bee Agent 浏览器插件',
     category: '工具',
     version: '1.0.0',
     size: '1MB',
@@ -206,7 +206,7 @@ class SmartSkillInstaller {
           mode: 'project',
           targetDir: projectClaudeDir,
           pluginDir: path.join(projectRoot, '.claude', 'plugins', 'marketplaces'),
-          marketplaceFile: path.join(projectRoot, '.claude', 'plugins', 'marketplaces', 'dhf-rpa-skills.json')
+          marketplaceFile: path.join(projectRoot, '.claude', 'plugins', 'marketplaces', 'bee-skills.json')
         };
       }
     }
@@ -217,7 +217,7 @@ class SmartSkillInstaller {
       mode: 'global',
       targetDir: path.join(home, '.claude', 'skills'),
       pluginDir: path.join(home, '.claude', 'plugins', 'marketplaces'),
-      marketplaceFile: path.join(home, '.claude', 'plugins', 'marketplaces', 'dhf-rpa-skills.json')
+      marketplaceFile: path.join(home, '.claude', 'plugins', 'marketplaces', 'bee-skills.json')
     };
   }
 
@@ -237,7 +237,7 @@ class SmartSkillInstaller {
         const home = process.env.HOME || process.env.USERPROFILE;
         this.targetDir = path.join(home, '.claude', 'skills');
         this.pluginDir = path.join(home, '.claude', 'plugins', 'marketplaces');
-        this.marketplaceFile = path.join(this.pluginDir, 'dhf-rpa-skills.json');
+        this.marketplaceFile = path.join(this.pluginDir, 'bee-skills.json');
       } else if (this.installMode === 'project') {
         // 查找项目根目录
         let currentDir = process.cwd();
@@ -249,7 +249,7 @@ class SmartSkillInstaller {
         }
         this.targetDir = path.join(currentDir, '.claude', 'skills');
         this.pluginDir = path.join(currentDir, '.claude', 'plugins', 'marketplaces');
-        this.marketplaceFile = path.join(this.pluginDir, 'dhf-rpa-skills.json');
+        this.marketplaceFile = path.join(this.pluginDir, 'bee-skills.json');
       }
     } else {
       // 自动检测
@@ -270,7 +270,7 @@ class SmartSkillInstaller {
     }
     try {
       const marketplace = JSON.parse(fs.readFileSync(this.marketplaceFile, 'utf-8'));
-      const plugin = marketplace.plugins?.find(p => p.name === 'dhf-rpa-skills');
+      const plugin = marketplace.plugins?.find(p => p.name === 'bee-skills');
       if (!plugin?.skills) return [];
       return plugin.skills.map(s => path.basename(s));
     } catch (error) {
@@ -299,7 +299,7 @@ class SmartSkillInstaller {
   // 显示欢迎信息
   showWelcome() {
     console.log('\n╔══════════════════════════════════════════════════════════════╗');
-    console.log('║          DHF RPA Skills - 智能安装器                        ║');
+    console.log('║          Bee RPA Skills - 智能安装器                        ║');
     console.log(`║          安装模式: ${this.installMode === 'global' ? '全局' : '项目级'}${' '.repeat(40)}║`);
     console.log('╚══════════════════════════════════════════════════════════════╝\n');
   }
@@ -447,19 +447,19 @@ class SmartSkillInstaller {
   // 更新 marketplace.json
   updateMarketplace(installedSkills) {
     const marketplace = {
-      name: 'dhf-rpa-skills',
+      name: 'bee-skills',
       owner: {
-        name: 'DHF RPA Community',
-        email: 'community@dhf.pub'
+        name: 'Bee RPA Community',
+        email: 'social@dhf.pub'
       },
       metadata: {
-        description: 'DHF Agent RPA 自动化技能包',
+        description: 'Bee Agent RPA 自动化技能包',
         version: '1.1.0'
       },
       plugins: [
         {
-          name: 'dhf-rpa-skills',
-          description: 'DHF RPA 自动化技能',
+          name: 'bee-skills',
+          description: 'Bee RPA 自动化技能',
           source: './',
           strict: true,
           skills: installedSkills.map(id => `./skills/${id}`)

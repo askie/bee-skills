@@ -20,6 +20,26 @@ interface Options {
   status?: boolean;
   open?: boolean;
   help?: boolean;
+  running?: boolean;
+  health?: boolean;
+}
+
+interface RunningStatus {
+  running: boolean;
+  pid?: number;
+  uptime?: string;
+  memory?: number; // MB
+}
+
+interface HealthCheckResult {
+  name: string;
+  status: "ok" | "warning" | "error";
+  message: string;
+}
+
+interface HealthStatus {
+  healthy: boolean;
+  checks: HealthCheckResult[];
 }
 
 interface InstallResult {
@@ -124,6 +144,13 @@ function parseArgs(args: string[]): Options {
       case "-o":
         options.open = true;
         break;
+      case "--running":
+      case "-r":
+        options.running = true;
+        break;
+      case "--health":
+        options.health = true;
+        break;
       case "--help":
       case "-h":
         options.help = true;
@@ -180,6 +207,148 @@ async function getVersion(execPath: string): Promise<string | undefined> {
       resolve(undefined);
     }, 5000);
   });
+}
+
+// Check if DHF is currently running
+async function isDHFRunning(): Promise<RunningStatus> {
+  const platformKey = platform();
+  let cmd = "";
+  let parseFunc = (output: string) => {
+    const match = output.trim().match(/\d+/);
+    return match ? parseInt(match[0]) : undefined;
+  };
+
+  if (platformKey === "win32") {
+    // Windows: use tasklist to find DHF-Bee-Agent.exe
+    cmd = `tasklist /FI "IMAGENAME eq DHF-Bee-Agent.exe" /FO CSV | findstr /V "PID"`;
+    parseFunc = (output: string) => {
+      const match = output.match(/"DHF-Bee-Agent\.exe",(\d+),"([^"]+)"/);
+      if (match) {
+        return { pid: parseInt(match[1]), name: match[2] };
+      }
+      return undefined;
+    };
+  } else if (platformKey === "darwin" || platformKey === "linux") {
+    // macOS/Linux: use pgrep to find DHF process
+    cmd = `pgrep -f "DHF-Bee-Agent" 2>/dev/null || true`;
+    parseFunc = (output: string) => {
+      const pidStr = output.trim().split("\n")[0];
+      return pidStr && pidStr.match(/^\d+$/) ? { pid: parseInt(pidStr) } : undefined;
+    };
+  } else {
+    return { running: false };
+  }
+
+  try {
+    const output = await exec(cmd, { encoding: "utf-8", timeout: 5000 });
+    const result = parseFunc(output.toString().trim());
+
+    if (!result || (typeof result === "object" && !result.pid)) {
+      return { running: false };
+    }
+
+    const pid = typeof result === "object" ? result.pid! : result as number;
+
+    // Get process uptime and memory
+    const uptime = await getProcessUptime(pid);
+    const memory = await getProcessMemory(pid);
+
+    return { running: true, pid, uptime, memory };
+  } catch {
+    return { running: false };
+  }
+}
+
+// Get process uptime
+async function getProcessUptime(pid: number): Promise<string> {
+  const platformKey = platform();
+  let cmd = "";
+
+  try {
+    if (platformKey === "win32") {
+      // Windows: Get process creation time via WMIC
+      cmd = `wmic process where ProcessId=${pid} get CreationDate /value`;
+      const output = await exec(cmd, { encoding: "utf-8", timeout: 5000 });
+      const match = output.toString().match(/CreationDate=(\d{14})/);
+      if (match) {
+        const creationTime = parseWMICDate(match[1]);
+        const uptimeMs = Date.now() - creationTime.getTime();
+        return formatUptime(uptimeMs);
+      }
+    } else {
+      // macOS/Linux: Get process elapsed time via ps
+      cmd = `ps -p ${pid} -o etime= 2>/dev/null || true`;
+      const output = await exec(cmd, { encoding: "utf-8", timeout: 5000 });
+      const etime = output.toString().trim();
+      if (etime) {
+        return etime; // Already formatted by ps
+      }
+    }
+  } catch {
+    // Ignore errors
+  }
+
+  return "Unknown";
+}
+
+// Parse WMIC date format (YYYYMMDDHHMMSS.xxx)
+function parseWMICDate(wmicDate: string): Date {
+  const year = parseInt(wmicDate.substring(0, 4));
+  const month = parseInt(wmicDate.substring(4, 6)) - 1;
+  const day = parseInt(wmicDate.substring(6, 8));
+  const hour = parseInt(wmicDate.substring(8, 10));
+  const minute = parseInt(wmicDate.substring(10, 12));
+  const second = parseInt(wmicDate.substring(12, 14));
+  return new Date(year, month, day, hour, minute, second);
+}
+
+// Format uptime in milliseconds to human readable
+function formatUptime(ms: number): string {
+  const seconds = Math.floor(ms / 1000);
+  const minutes = Math.floor(seconds / 60);
+  const hours = Math.floor(minutes / 60);
+  const days = Math.floor(hours / 24);
+
+  if (days > 0) {
+    return `${days} day${days > 1 ? "s" : ""}`;
+  } else if (hours > 0) {
+    const mins = minutes % 60;
+    return `${hours} hour${hours > 1 ? "s" : ""}${mins > 0 ? ` ${mins} min` : ""}`;
+  } else if (minutes > 0) {
+    return `${minutes} min`;
+  } else {
+    return `${seconds} sec`;
+  }
+}
+
+// Get process memory usage in MB
+async function getProcessMemory(pid: number): Promise<number> {
+  const platformKey = platform();
+  let cmd = "";
+
+  try {
+    if (platformKey === "win32") {
+      // Windows: Get working set memory in KB
+      cmd = `wmic process where ProcessId=${pid} get WorkingSetSize /value`;
+      const output = await exec(cmd, { encoding: "utf-8", timeout: 5000 });
+      const match = output.toString().match(/WorkingSetSize=(\d+)/);
+      if (match) {
+        return Math.round(parseInt(match[1]) / 1024 / 1024); // Bytes to MB
+      }
+    } else {
+      // macOS/Linux: Get RSS memory in KB
+      cmd = `ps -p ${pid} -o rss= 2>/dev/null || true`;
+      const output = await exec(cmd, { encoding: "utf-8", timeout: 5000 });
+      const rssKB = parseInt(output.toString().trim());
+      if (!isNaN(rssKB)) {
+        return Math.round(rssKB / 1024); // KB to MB
+      }
+    }
+  } catch {
+    // Ignore errors
+  }
+
+  return 0;
 }
 
 // Get download URL for current platform
@@ -412,7 +581,7 @@ async function installDHF(options: Options): Promise<InstallResult> {
 
       // Ask if user wants to open the app
       if (options.open) {
-        await openDHF();
+        await smartOpenDHF();
       } else {
         log("", colors.reset);
         log("💡 To open DHF Bee Agent, run:", colors.yellow);
@@ -457,6 +626,43 @@ async function showStatus(): Promise<void> {
     if (configPath && existsSync(configPath)) {
       log(`   Config: ${configPath}`, colors.cyan);
     }
+
+    console.log();
+
+    // Check running status
+    const running = await isDHFRunning();
+    if (running.running) {
+      log("🟢 Running Status: Running", colors.green);
+      if (running.pid) {
+        log(`   PID: ${running.pid}`, colors.cyan);
+      }
+      if (running.uptime) {
+        log(`   Uptime: ${running.uptime}`, colors.cyan);
+      }
+      if (running.memory) {
+        log(`   Memory: ${running.memory} MB`, colors.cyan);
+      }
+    } else {
+      log("🔴 Running Status: Not running", colors.red);
+      log(`   Run /dhf-install-agent --open to start`, colors.yellow);
+    }
+
+    console.log();
+
+    // Health check
+    const health = await checkDHFHealth();
+    if (health.healthy) {
+      log("🔍 Health Check: Healthy", colors.green);
+    } else {
+      log("🔍 Health Check: Issues detected", colors.yellow);
+    }
+
+    for (const check of health.checks) {
+      const icon = check.status === "ok" ? "   ✅" : check.status === "warning" ? "   ⚠️" : "   ❌";
+      const color = check.status === "ok" ? colors.green : check.status === "warning" ? colors.yellow : colors.red;
+      log(`${icon} ${capitalize(check.name)}: ${check.message}`, color);
+    }
+
   } else {
     log("❌ DHF Bee Agent is not installed", colors.red);
     log("   Run /dhf-install-agent --install to install", colors.yellow);
@@ -481,8 +687,123 @@ async function checkInstallation(): Promise<void> {
   }
 }
 
-// Open DHF application
-async function openDHF(): Promise<void> {
+// Check running status only
+async function checkRunningStatus(): Promise<void> {
+  const running = await isDHFRunning();
+
+  if (running.running) {
+    log("🟢 Running", colors.green);
+    if (running.pid) {
+      log(`PID: ${running.pid}`, colors.cyan);
+    }
+    if (running.uptime) {
+      log(`Uptime: ${running.uptime}`, colors.cyan);
+    }
+    if (running.memory) {
+      log(`Memory: ${running.memory} MB`, colors.cyan);
+    }
+  } else {
+    log("🔴 Not running", colors.red);
+    process.exit(1);
+  }
+}
+
+// Perform health check
+async function performHealthCheck(): Promise<void> {
+  printHeader("DHF Bee Agent Health Check");
+
+  const health = await checkDHFHealth();
+
+  if (health.healthy) {
+    log("✅ Overall Status: Healthy", colors.green);
+  } else {
+    log("⚠️  Overall Status: Issues detected", colors.yellow);
+  }
+
+  console.log();
+  log("Detailed Checks:", colors.bright);
+  console.log();
+
+  for (const check of health.checks) {
+    const icon = check.status === "ok" ? "✅" : check.status === "warning" ? "⚠️" : "❌";
+    const color = check.status === "ok" ? colors.green : check.status === "warning" ? colors.yellow : colors.red;
+    log(`${icon} ${capitalize(check.name)}: ${check.message}`, color);
+  }
+
+  console.log();
+}
+
+// Health check implementation
+async function checkDHFHealth(): Promise<HealthStatus> {
+  const checks: HealthCheckResult[] = [];
+  let healthy = true;
+
+  // 1. Process status check
+  const running = await isDHFRunning();
+  checks.push({
+    name: "process",
+    status: running.running ? "ok" : "error",
+    message: running.running ? `Running (PID ${running.pid})` : "Not running"
+  });
+  if (!running.running) healthy = false;
+
+  // 2. Config file check
+  const platformKey = platform() as keyof typeof INSTALL_PATHS;
+  const configPath = INSTALL_PATHS[platformKey]?.config;
+  if (configPath && existsSync(configPath)) {
+    checks.push({ name: "config", status: "ok", message: "Accessible" });
+  } else {
+    checks.push({ name: "config", status: "warning", message: "Not found" });
+  }
+
+  // 3. Memory usage check (if process is running)
+  if (running.running && running.memory !== undefined) {
+    checks.push({
+      name: "memory",
+      status: running.memory > 1000 ? "warning" : "ok",
+      message: `${running.memory} MB${running.memory > 1000 ? " (high)" : ""}`
+    });
+  } else if (running.running) {
+    checks.push({ name: "memory", status: "ok", message: "Normal" });
+  }
+
+  return { healthy, checks };
+}
+
+// Capitalize first letter
+function capitalize(str: string): string {
+  return str.charAt(0).toUpperCase() + str.slice(1);
+}
+
+// Activate DHF window (bring to front)
+async function activateWindow(): Promise<boolean> {
+  const platformKey = platform();
+  let cmd = "";
+
+  try {
+    if (platformKey === "win32") {
+      // Windows: Use PowerShell to activate window
+      cmd = `$w = New-Object -ComObject WScript.Shell; if ($w.AppActivate('DHF Bee Agent')) { Write-Host 'Activated' }`;
+      await exec(`powershell -Command "${cmd}"`, { encoding: "utf-8", timeout: 5000 });
+      return true;
+    } else if (platformKey === "darwin") {
+      // macOS: Use AppleScript to activate application
+      cmd = `osascript -e 'tell application "DHF-Bee-Agent" to activate' 2>/dev/null || osascript -e 'tell application "DHF Bee Agent" to activate' 2>/dev/null || true`;
+      await exec(cmd, { encoding: "utf-8", timeout: 5000 });
+      return true;
+    } else {
+      // Linux: Try wmctrl or xdotool
+      cmd = `wmctrl -a "DHF Bee Agent" 2>/dev/null || xdotool windowactivate $(xdotool search --name "DHF Bee Agent" 2>/dev/null | head -1) 2>/dev/null || true`;
+      await exec(cmd, { encoding: "utf-8", timeout: 5000 });
+      return true;
+    }
+  } catch {
+    return false;
+  }
+}
+
+// Smart open: activate if running, launch if not
+async function smartOpenDHF(): Promise<void> {
   const detection = await detectInstallation();
 
   if (!detection.installed) {
@@ -510,13 +831,44 @@ async function openDHF(): Promise<void> {
     }
   }
 
-  log("🚀 正在启动 DHF Bee Agent...", colors.green);
-  const platformKey = platform();
-  const openCommand = platformKey === "win32" ? "start" :
-                      platformKey === "darwin" ? "open" : "xdg-open";
+  // Check if already running
+  const running = await isDHFRunning();
 
-  spawn(openCommand, [detection.path!], { shell: true, detached: true });
-  log("✅ DHF Bee Agent 已启动!", colors.green);
+  if (running.running) {
+    log("🔄 DHF Bee Agent 已在运行中，正在激活窗口...", colors.yellow);
+    const activated = await activateWindow();
+    if (activated) {
+      log("✅ 窗口已激活", colors.green);
+    } else {
+      log("⚠️  无法激活窗口，请手动切换到 DHF Bee Agent", colors.yellow);
+    }
+  } else {
+    log("🚀 正在启动 DHF Bee Agent...", colors.green);
+    const platformKey = platform();
+    const openCommand = platformKey === "win32" ? "start" :
+                        platformKey === "darwin" ? "open" : "xdg-open";
+
+    spawn(openCommand, [detection.path!], { shell: true, detached: true });
+    log("✅ DHF Bee Agent 已启动!", colors.green);
+  }
+}
+
+// Check installation only
+async function checkInstallation(): Promise<void> {
+  const detection = await detectInstallation();
+
+  if (detection.installed) {
+    log("✅ Installed", colors.green);
+    if (detection.path) {
+      log(detection.path, colors.cyan);
+    }
+    if (detection.version) {
+      log(`Version: ${detection.version}`, colors.cyan);
+    }
+  } else {
+    log("❌ Not installed", colors.red);
+    process.exit(1);
+  }
 }
 
 // Show help
@@ -533,6 +885,8 @@ function showHelp(): void {
   log("  --install, -i    Install DHF Bee Agent (auto-download)", colors.cyan);
   log("  --force, -f      Force reinstall", colors.cyan);
   log("  --status, -s     Show installation status", colors.cyan);
+  log("  --running, -r    Check if DHF is running", colors.cyan);
+  log("  --health         Show DHF health status", colors.cyan);
   log("  --open, -o       Open DHF application (auto-install if needed)", colors.cyan);
   log("  --help, -h       Show this help message", colors.cyan);
   console.log();
@@ -542,6 +896,8 @@ function showHelp(): void {
   log("  /dhf-install-agent --install", colors.green);
   log("  /dhf-install-agent --install --open", colors.green);
   log("  /dhf-install-agent --status", colors.green);
+  log("  /dhf-install-agent --running", colors.green);
+  log("  /dhf-install-agent --health", colors.green);
   log("  /dhf-install-agent --install --force", colors.green);
   log("  /dhf-install-agent --open", colors.green);
   console.log();
@@ -567,13 +923,23 @@ async function main() {
     return;
   }
 
+  if (options.running) {
+    await checkRunningStatus();
+    return;
+  }
+
+  if (options.health) {
+    await performHealthCheck();
+    return;
+  }
+
   if (options.status) {
     await showStatus();
     return;
   }
 
   if (options.open) {
-    await openDHF();
+    await smartOpenDHF();
     return;
   }
 

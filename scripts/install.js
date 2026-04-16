@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * DHF RPA Skills 交互式安装器
+ * Bee RPA Skills 交互式安装器
  */
 
 import inquirer from 'inquirer';
@@ -18,7 +18,7 @@ const SKILLS_REGISTRY = [
   {
     id: 'dhf-rpa-test-workflow',
     name: 'RPA 测试工作流',
-    description: '测试 DHF Agent 基础连接和 RPA 操作',
+    description: '测试 Bee Agent 基础连接和 RPA 操作',
     category: '测试',
     version: '1.0.0',
     dependencies: [],
@@ -187,8 +187,8 @@ const SKILLS_REGISTRY = [
   // 工具类
   {
     id: 'dhf-install-agent',
-    name: '安装 DHF Agent',
-    description: '安装 DHF Bee Agent 浏览器插件',
+    name: '安装 Bee Agent',
+    description: '安装 Bee Bee Agent 浏览器插件',
     category: '工具',
     version: '1.0.0',
     dependencies: [],
@@ -220,7 +220,7 @@ class SkillInstaller {
     }
     try {
       const marketplace = JSON.parse(fs.readFileSync(this.marketplaceFile, 'utf-8'));
-      const plugin = marketplace.plugins?.find(p => p.name === 'dhf-rpa-skills');
+      const plugin = marketplace.plugins?.find(p => p.name === 'bee-skills');
       if (!plugin?.skills) return [];
       return plugin.skills.map(s => {
         const name = path.basename(s);
@@ -240,7 +240,7 @@ class SkillInstaller {
   // 显示欢迎信息
   showWelcome() {
     console.log('\n╔══════════════════════════════════════════════════════════════╗');
-    console.log('║          DHF RPA Skills - 交互式安装器                      ║');
+    console.log('║          Bee RPA Skills - 交互式安装器                      ║');
     console.log('║          按需选择你需要的技能                               ║');
     console.log('╚══════════════════════════════════════════════════════════════╝\n');
   }
@@ -390,19 +390,19 @@ class SkillInstaller {
   // 更新 marketplace.json
   updateMarketplace(installedSkills) {
     const marketplace = {
-      name: 'dhf-rpa-skills',
+      name: 'bee-skills',
       owner: {
-        name: 'DHF RPA Community',
-        email: 'community@dhf.pub'
+        name: 'Bee RPA Community',
+        email: 'social@dhf.pub'
       },
       metadata: {
-        description: 'DHF Agent RPA 自动化技能包',
+        description: 'Bee Agent RPA 自动化技能包',
         version: '1.0.0'
       },
       plugins: [
         {
-          name: 'dhf-rpa-skills',
-          description: 'DHF RPA 自动化技能',
+          name: 'bee-skills',
+          description: 'Bee RPA 自动化技能',
           source: './',
           strict: true,
           skills: installedSkills.map(id => `./skills/${id}`)

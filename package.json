@@ -1,7 +1,7 @@
 {
-  "name": "@zx1998/dhf-rpa-installer",
+  "name": "bee-skills",
   "version": "1.2.2",
-  "description": "DHF Agent RPA 自动化技能包 - 按需安装",
+  "description": "Bee Agent RPA 自动化技能包 - 按需安装",
   "private": false,
   "type": "module",
   "scripts": {
@@ -24,7 +24,6 @@
     "version:major": "npm version major && git push --follow-tags"
   },
   "keywords": [
-    "dhf",
     "rpa",
     "automation",
     "claude-code",
@@ -34,16 +33,15 @@
     "workflow"
   ],
   "author": {
-    "name": "zx1998",
-    "email": "zxtest7985@163.com"
+    "name": "askie"
   },
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/zx1998-code/dhf-rpa-skills.git"
+    "url": "https://github.com/askie/bee-skills.git"
   },
   "bugs": {
-    "email": "community@dhf.pub"
+    "email": "social@dhf.pub"
   },
   "dependencies": {
     "inquirer": "^9.2.0",
@@ -59,7 +57,7 @@
     "node": ">=18.0.0"
   },
   "bin": {
-    "dhf-rpa-install": "./cli.js"
+    "bee-skills": "./cli.js"
   },
   "files": [
     "scripts/",

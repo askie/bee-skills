@@ -30,7 +30,7 @@ dhf-rpa-your-skill/
 name: dhf-rpa-your-skill
 description: 你的技能描述
 version: 1.0.0
-author: DHF RPA Community
+author: Bee RPA Community
 license: MIT
 tags: [tag1, tag2, tag3]
 category: 分类
@@ -85,7 +85,7 @@ dependencies: []
     "test": "node scripts/cli.js --check"
   },
   "keywords": ["dhf", "rpa", "your-keywords"],
-  "author": "DHF RPA Community",
+  "author": "Bee RPA Community",
   "license": "MIT",
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.0.4"
@@ -125,7 +125,7 @@ dependencies: []
 ```bash
 # 1. 创建符号链接
 cd ~/.claude/skills
-ln -s /path/to/dhf-rpa-skills/skills/dhf-rpa-your-skill .
+ln -s /path/to/bee-skills/skills/dhf-rpa-your-skill .
 
 # 2. 重启 Claude Code
 
@@ -265,6 +265,6 @@ A: 将共享代码放在 `packages/` 目录：
 
 ## 资源
 
-- [DHF 官方文档](https://dhf.pub/help)
+- [Bee 官方文档](https://dhf.pub/help)
 - [Claude Code 文档](https://github.com/anthropics/claude-code)
 - [MCP 协议](https://modelcontextprotocol.io)

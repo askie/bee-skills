@@ -31,9 +31,11 @@ DHF Bee Agent (Grix platform) is an OpenClaw compatible multi-agent collaboratio
 - **Auto-Extraction**: Extracts and installs files to the correct location
 - **Installation Detection**: Checks if DHF is already installed
 - **Version Verification**: Ensures the installed version is working
+- **Running Status Detection**: Checks if DHF is currently running with PID and uptime
+- **Health Check**: Verifies process, config, and memory status
+- **Smart Open**: Activates window if already running, launches if not
 - **Cross-Platform**: Supports Windows, macOS (Intel/Apple Silicon), and Linux
 - **Force Reinstall**: Reinstalls with the `--force` flag
-- **Smart Open**: `--open` command auto-installs if DHF is not found
 
 ## Usage
 
@@ -47,10 +49,16 @@ DHF Bee Agent (Grix platform) is an OpenClaw compatible multi-agent collaboratio
 # Force reinstall even if already installed
 /dhf-install-agent --install --force
 
-# Show DHF version and status
+# Show DHF version and status (including running state and health)
 /dhf-install-agent --status
 
-# Open DHF (auto-install if not installed)
+# Check if DHF is currently running
+/dhf-install-agent --running
+
+# Perform health check
+/dhf-install-agent --health
+
+# Open DHF (auto-install if not found, activate if already running)
 /dhf-install-agent --open
 ```
 

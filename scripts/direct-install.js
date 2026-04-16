@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
  * 直接安装脚本 - 支持非交互式安装
- * 用于：npm install @zx1998/dhf-rpa-installer -- --skill=dhf-rpa-test-workflow
+ * 用于：npm install bee-skills -- --skill=dhf-rpa-test-workflow
  */
 
 import fs from 'fs';
@@ -56,10 +56,10 @@ class DirectInstaller {
     const args = this.getInstallArgs();
 
     if (!args) {
-      console.log('DHG RPA Skills Installer v1.2.0\n');
+      console.log('Bee Skills Installer v1.2.0\n');
       console.log('使用方法：');
-      console.log('  npm install @zx1998/dhf-rpa-installer -- --skill=<skillId>');
-      console.log('  npm install @zx1998/dhf-rpa-installer -- --skill=dhf-rpa-test-workflow,dhf-qq-mail-task');
+      console.log('  npm install bee-skills -- --skill=<skillId>');
+      console.log('  npm install bee-skills -- --skill=dhf-rpa-test-workflow,dhf-qq-mail-task');
       console.log('\n可用技能：');
       this.listSkills();
       return;
@@ -169,22 +169,22 @@ class DirectInstaller {
       pluginDir = path.join(home, '.claude', 'plugins', 'marketplaces');
     }
 
-    marketplaceFile = path.join(pluginDir, 'dhf-rpa-skills.json');
+    marketplaceFile = path.join(pluginDir, 'bee-skills.json');
 
     const marketplace = {
-      name: 'dhf-rpa-skills',
+      name: 'bee-skills',
       owner: {
-        name: 'DHF RPA Community',
-        email: 'community@dhf.pub'
+        name: 'Bee Skills Community',
+        email: 'community@bee.pub'
       },
       metadata: {
-        description: 'DHF Agent RPA 自动化技能包',
+        description: 'Bee Agent RPA 自动化技能包',
         version: '1.2.0'
       },
       plugins: [
         {
-          name: 'dhf-rpa-skills',
-          description: 'DHF RPA 自动化技能',
+          name: 'bee-skills',
+          description: 'Bee RPA 自动化技能',
           source: './',
           strict: true,
           skills: skills.map(id => `./skills/${id}`)

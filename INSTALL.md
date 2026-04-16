@@ -3,7 +3,7 @@
 ## 系统要求
 
 - **Node.js** >= 18.0.0
-- **DHF Agent** 已安装并运行
+- **Bee Agent** 已安装并运行
 - **Claude Code** 最新版本
 - **操作系统**：Windows / macOS / Linux
 
@@ -12,8 +12,8 @@
 ### 1. 克隆仓库
 
 ```bash
-git clone https://github.com/zx1998-code/dhf-rpa-skills.git
-cd dhf-rpa-skills
+git clone https://github.com/askie/bee-skills.git
+cd bee-skills
 ```
 
 ### 2. 安装依赖
@@ -34,12 +34,12 @@ npm run install
 
 ```
 ╔══════════════════════════════════════════════════════════════╗
-║          DHF RPA Skills - 交互式安装器                      ║
+║          Bee RPA Skills - 交互式安装器                      ║
 ║          按需选择你需要的技能                               ║
 ╚══════════════════════════════════════════════════════════════╝
 
 ? 选择要安装的技能 (空格选择/取消，回车确认):
-❯ ◯ RPA 测试工作流       - 测试 DHF Agent 基础连接和 RPA 操作 [2MB]
+❯ ◯ RPA 测试工作流       - 测试 Bee Agent 基础连接和 RPA 操作 [2MB]
   ◯ 163 邮件发送         - 自动化发送 163 邮件 [1.5MB]
   ◯ Outlook 邮件发送     - 自动化发送 Outlook 邮件 [1.5MB]
   ◯ QQ 邮件发送          - 自动化发送 QQ 邮件 [1.5MB]
@@ -86,7 +86,7 @@ npm run install
 /dhf-rpa-test-workflow --check
 ```
 
-如果显示 DHF Agent 状态信息，说明安装成功！
+如果显示 Bee Agent 状态信息，说明安装成功！
 
 ## 常用命令
 
@@ -100,7 +100,7 @@ npm run list
 
 ```
 ╔══════════════════════════════════════════════════════════════╗
-║          DHF RPA Skills - 技能列表                         ║
+║          Bee RPA Skills - 技能列表                         ║
 ╚══════════════════════════════════════════════════════════════╝
 
 📦 可用技能: 4 | ✅ 已安装: 2
@@ -110,7 +110,7 @@ npm run list
 ──────────────────────────────────────────────────────────────
 
   RPA 测试工作流
-    描述: 测试 DHF Agent 基础连接和 RPA 操作
+    描述: 测试 Bee Agent 基础连接和 RPA 操作
     命令: /dhf-rpa-test-workflow
     状态: ✅ 已安装
     版本: 1.0.0
@@ -185,17 +185,17 @@ mkdir -p ~/.claude/skills
 - [ ] 已重启 Claude Code
 - [ ] 技能在 `~/.claude/skills/` 目录中
 
-### 4. DHF Agent 连接失败
+### 4. Bee Agent 连接失败
 
 **检查：**
 
-- DHF Agent 是否正在运行
+- Bee Agent 是否正在运行
 - MCP 服务是否在 localhost:6869
 - 浏览器插件是否已连接
 
 ## 卸载
 
-完全卸载 DHF RPA Skills：
+完全卸载 Bee RPA Skills：
 
 ```bash
 # 1. 卸载所有技能
@@ -203,7 +203,7 @@ npm run uninstall
 
 # 2. 删除仓库
 cd ..
-rm -rf dhf-rpa-skills
+rm -rf bee-skills
 
 # 3. 手动删除技能目录（如果有残留）
 # Windows: C:\Users\zx1998\.claude\skills\
@@ -216,7 +216,7 @@ rm -rf dhf-rpa-skills
 
 ```bash
 # 1. 更新仓库
-cd dhf-rpa-skills
+cd bee-skills
 git pull
 
 # 2. 同步已安装的技能
@@ -228,5 +228,5 @@ npm run sync
 ## 需要帮助？
 
 - 查看 [README.md](README.md)
-- 提交 [GitHub Issues](https://github.com/zx1998-code/dhf-rpa-skills/issues)
-- 访问 [DHF 帮助中心](https://dhf.pub/en/help)
+- 提交 [GitHub Issues](https://github.com/askie/bee-skills/issues)
+- 访问 [Bee 帮助中心](https://dhf.pub/en/help)

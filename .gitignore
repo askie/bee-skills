@@ -38,3 +38,4 @@ coverage/
 
 # Claude plugin (动态生成)
 .claude-plugin/marketplace.json
+skillsAdd.md

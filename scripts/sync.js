@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * DHF RPA Skills 同步脚本
+ * Bee RPA Skills 同步脚本
  * 同步已安装的技能到最新版本
  */
 
@@ -32,7 +32,7 @@ class SkillSyncer {
     }
     try {
       const marketplace = JSON.parse(fs.readFileSync(this.marketplaceFile, 'utf-8'));
-      const plugin = marketplace.plugins?.find(p => p.name === 'dhf-rpa-skills');
+      const plugin = marketplace.plugins?.find(p => p.name === 'bee-skills');
       if (!plugin?.skills) return [];
       return plugin.skills.map(s => path.basename(s));
     } catch (error) {
@@ -81,7 +81,7 @@ class SkillSyncer {
   }
 
   sync() {
-    console.log('\n🔄 DHF RPA Skills 同步工具\n');
+    console.log('\n🔄 Bee RPA Skills 同步工具\n');
 
     const installed = this.getInstalledSkills();
 

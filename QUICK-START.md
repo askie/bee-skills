@@ -1,4 +1,4 @@
-# 快速开始 - DHF RPA Skills
+# 快速开始 - Bee RPA Skills
 
 ## 我是这个包的发布者
 
@@ -14,27 +14,27 @@
 
 ```bash
 # 安装单个技能
-npm install @zx1998/dhf-rpa-installer -- --skill=dhf-rpa-test-workflow
+npm install bee-skills -- --skill=dhf-rpa-test-workflow
 
 # 安装多个技能
-npm install @zx1998/dhf-rpa-installer -- --skill=dhf-rpa-test-workflow,dhf-qq-mail-task
+npm install bee-skills -- --skill=dhf-rpa-test-workflow,dhf-qq-mail-task
 ```
 
 ### 方法 2：使用 npx（需要安装后）
 
 ```bash
 # 全局安装
-npm install -g @zx1998/dhf-rpa-installer
+npm install -g bee-skills
 
 # 然后使用命令
-dhf-rpa-install --skill=dhf-rpa-test-workflow
+bee-skills --skill=dhf-rpa-test-workflow
 ```
 
 ### 方法 3：克隆本地仓库（如果没有 npm）
 
 ```bash
 # 如果你有本地仓库
-cd E:\aiwork\skillsGenerate\dhf-rpa-skills
+cd E:\aiwork\skillsGenerate\bee-skills
 
 # 安装指定技能
 node cli.js --skill=dhf-rpa-test-workflow
@@ -52,11 +52,11 @@ npm run install
 # 技能目录：C:\Users\<YourUser>\.claude\skills\
 
 # 2. 复制技能（以 dhf-rpa-test-workflow 为例）
-# 从：E:\aiwork\skillsGenerate\dhf-rpa-skills\skills\dhf-rpa-test-workflow
+# 从：E:\aiwork\skillsGenerate\bee-skills\skills\dhf-rpa-test-workflow
 # 到：C:\Users\<YourUser>\.claude\skills\dhf-rpa-test-workflow
 
 # Windows 命令
-xcopy "E:\aiwork\skillsGenerate\dhf-rpa-skills\skills\dhf-rpa-test-workflow" "C:\Users\<YourUser>\.claude\skills\dhf-rpa-test-workflow\" /E /I /H /Y
+xcopy "E:\aiwork\skillsGenerate\bee-skills\skills\dhf-rpa-test-workflow" "C:\Users\<YourUser>\.claude\skills\dhf-rpa-test-workflow\" /E /I /H /Y
 ```
 
 ## 可用技能列表
@@ -87,7 +87,7 @@ xcopy "E:\aiwork\skillsGenerate\dhf-rpa-skills\skills\dhf-rpa-test-workflow" "C:
 - dhf-google-trends-task - Google 趋势
 
 ### 工具
-- dhf-install-agent - 安装 DHF Agent
+- dhf-install-agent - 安装 Bee Agent
 
 ## 验证安装
 
@@ -107,5 +107,5 @@ ls C:\Users\<YourUser>\.claude\skills\
 
 ## 联系方式
 
-- Email: community@dhf.pub
-- npm: https://www.npmjs.com/package/@zx1998/dhf-rpa-installer
+- Email: social@dhf.pub
+- npm: https://www.npmjs.com/package/bee-skills

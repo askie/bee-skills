@@ -1,13 +1,13 @@
-# AI Installation Guide for DHF RPA Skills
+# AI Installation Guide for Bee RPA Skills
 
-This guide is for AI assistants (Claude Code, GLM, etc.) to properly install DHF RPA Skills.
+This guide is for AI assistants (Claude Code, GLM, etc.) to properly install Bee RPA Skills.
 
 ## Quick Installation Commands
 
 ### Install All Skills (Auto-detect Mode)
 
 ```bash
-cd E:\aiwork\skillsGenerate\dhf-rpa-skills
+cd E:\aiwork\skillsGenerate\bee-skills
 npm run install
 ```
 
@@ -98,8 +98,8 @@ ls E:\aiwork\skillsGenerate\.claude\skills
 
 ### Marketplace Configuration
 Check that `marketplace.json` exists and contains installed skills:
-- Global: `C:\Users\Administrator\.claude\plugins\marketplaces\dhf-rpa-skills.json`
-- Project: `E:\aiwork\skillsGenerate\.claude\plugins\marketplaces\dhf-rpa-skills.json`
+- Global: `C:\Users\Administrator\.claude\plugins\marketplaces\bee-skills.json`
+- Project: `E:\aiwork\skillsGenerate\.claude\plugins\marketplaces\bee-skills.json`
 
 ## Silent Installation (For AI Automation)
 
@@ -118,21 +118,21 @@ This will:
 ### User: "Install the QQ mail skill"
 **AI Response**:
 ```bash
-cd E:\aiwork\skillsGenerate\dhf-rpa-skills
+cd E:\aiwork\skillsGenerate\bee-skills
 node scripts/install-smart.js --skill=dhf-rpa-qq-mail-task
 ```
 
 ### User: "Install all skills globally"
 **AI Response**:
 ```bash
-cd E:\aiwork\skillsGenerate\dhf-rpa-skills
+cd E:\aiwork\skillsGenerate\bee-skills
 node scripts/install-smart.js --global
 ```
 
 ### User: "Install skills for this project"
 **AI Response**:
 ```bash
-cd E:\aiwork\skillsGenerate\dhf-rpa-skills
+cd E:\aiwork\skillsGenerate\bee-skills
 node scripts/install-smart.js --project
 ```
 
@@ -168,5 +168,5 @@ node scripts/install-smart.js --project
 ## Support
 
 For issues or questions:
-- Email: community@dhf.pub
+- Email: social@dhf.pub
 - Package: @zx1998/dhf-rpa-installer

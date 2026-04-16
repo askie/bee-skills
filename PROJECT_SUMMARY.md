@@ -1,13 +1,13 @@
-# DHF RPA Skills 项目实施完成
+# Bee RPA Skills 项目实施完成
 
 ## 项目概述
 
-已成功创建 DHF RPA Skills 按需安装系统，实现用户可选择性安装技能的功能。
+已成功创建 Bee RPA Skills 按需安装系统，实现用户可选择性安装技能的功能。
 
 ## 已创建的文件结构
 
 ```
-dhf-rpa-skills/
+bee-skills/
 ├── .github/
 │   └── workflows/
 │       └── sync.yml              # GitHub Actions 自动同步
@@ -100,7 +100,7 @@ npm run sync
 - ✅ 检查 Node.js 版本
 - ✅ 检查 Claude skills 目录
 - ✅ 检查文件权限
-- ✅ 检查 DHF Agent
+- ✅ 检查 Bee Agent
 - ✅ 自动安装依赖
 
 **使用：**
@@ -128,7 +128,7 @@ npm run setup
 
 ### 与 baoyu-skills 的对比
 
-| 特性 | baoyu-skills | dhf-rpa-skills |
+| 特性 | baoyu-skills | bee-skills |
 |------|-------------|----------------|
 | 按需安装 | ❌ | ✅ |
 | 统一仓库 | ✅ | ✅ |
@@ -141,20 +141,20 @@ npm run setup
 ### 1. 初始化 Git 仓库
 
 ```bash
-cd E:\aiwork\skillsGenerate\dhf-rpa-skills
+cd E:\aiwork\skillsGenerate\bee-skills
 git init
 git add .
-git commit -m "feat: 初始化 DHF RPA Skills 按需安装系统"
+git commit -m "feat: 初始化 Bee RPA Skills 按需安装系统"
 ```
 
 ### 2. 创建 GitHub 仓库
 
 1. 访问 https://github.com/new
-2. 创建仓库 `dhf-rpa-skills`
+2. 创建仓库 `bee-skills`
 3. 推送代码
 
 ```bash
-git remote add origin https://github.com/YOUR_USERNAME/dhf-rpa-skills.git
+git remote add origin https://github.com/YOUR_USERNAME/bee-skills.git
 git branch -M main
 git push -u origin main
 ```
@@ -181,7 +181,7 @@ npm run install
 npm login
 
 # 更新 package.json 中的包名（使用 scoped 包名）
-# "name": "@zx1998/dhf-rpa-installer"
+# "name": "bee-skills"
 
 # 运行发布前检查
 npm run prepublishOnly
@@ -205,8 +205,8 @@ npm run publish:public
 
 ```bash
 # 1. 克隆仓库
-git clone https://github.com/xxx/dhf-rpa-skills.git
-cd dhf-rpa-skills
+git clone https://github.com/xxx/bee-skills.git
+cd bee-skills
 
 # 2. 环境检查
 npm run setup
@@ -282,8 +282,8 @@ git push
 
 ## 联系方式
 
-- GitHub: https://github.com/YOUR_USERNAME/dhf-rpa-skills
-- Email: community@dhf.pub
+- GitHub: https://github.com/YOUR_USERNAME/bee-skills
+- Email: social@dhf.pub
 
 ---
 

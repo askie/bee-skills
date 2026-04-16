@@ -1,12 +1,12 @@
 # 快速开始
 
-## 三步安装 DHF RPA Skills
+## 三步安装 Bee RPA Skills
 
 ### 步骤 1：克隆仓库
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/dhf-rpa-skills.git
-cd dhf-rpa-skills
+git clone https://github.com/YOUR_USERNAME/bee-skills.git
+cd bee-skills
 ```
 
 ### 步骤 2：环境检查
@@ -58,5 +58,5 @@ npm run install
 ## 需要帮助？
 
 - 查看 [完整安装指南](INSTALL.md)
-- 提交 [GitHub Issues](https://github.com/YOUR_USERNAME/dhf-rpa-skills/issues)
-- 访问 [DHF 帮助中心](https://dhf.pub/en/help)
+- 提交 [GitHub Issues](https://github.com/YOUR_USERNAME/bee-skills/issues)
+- 访问 [Bee 帮助中心](https://dhf.pub/en/help)

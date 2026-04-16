@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * DHF RPA Skills 卸载脚本
+ * Bee RPA Skills 卸载脚本
  */
 
 import inquirer from 'inquirer';
@@ -12,7 +12,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 // 技能注册表（与 install.js 保持一致）
-const SKILLS_REGISTRY = [  { id: 'dhf-rpa-test-workflow', name: 'RPA 测试工作流', description: '测试 DHF Agent 基础连接和 RPA 操作', category: '测试' },  { id: 'dhf-163mail-task', name: '163 邮件发送', description: '自动化发送 163 邮件', category: '邮件' },  { id: 'dhf-outlook-mail-task', name: 'Outlook 邮件发送', description: '自动化发送 Outlook 邮件', category: '邮件' },  { id: 'dhf-qq-mail-task', name: 'QQ 邮件发送', description: '自动化发送 QQ 邮件', category: '邮件' },  { id: 'dhf-163news-task', name: '163 网易新闻', description: '获取 163 网易新闻资讯', category: '新闻' },  { id: 'dhf-bing-news-task', name: '百度新闻', description: '获取百度新闻资讯', category: '新闻' },  { id: 'dhf-google-news-task', name: 'Google 新闻', description: '获取 Google 新闻资讯', category: '新闻' },  { id: 'dhf-juejin-news-task', name: '掘金新闻', description: '获取掘金新闻资讯', category: '新闻' },  { id: 'dhf-tencent-news-task', name: '腾讯新闻', description: '获取腾讯新闻资讯', category: '新闻' },  { id: 'dhf-toutiao-news-task', name: '今日头条新闻', description: '获取今日头条资讯', category: '新闻' },  { id: 'dhf-douyin-hot-search-task', name: '抖音热搜', description: '获取抖音热搜榜单', category: '搜索' },  { id: 'dhf-google-hot-topics-task', name: 'Google 热搜', description: '获取 Google 热搜榜单', category: '搜索' },  { id: 'dhf-weibo-hot-search-task', name: '微博热搜', description: '获取微博热搜榜单', category: '搜索' },  { id: 'dhf-zhihu-hot-search-task', name: '知乎热搜', description: '获取知乎热榜', category: '搜索' },  { id: 'dhf-google-trends-task', name: 'Google 趋势', description: '获取 Google 搜索趋势', category: '趋势' },  { id: 'dhf-install-agent', name: '安装 DHF Agent', description: '安装 DHF Bee Agent 浏览器插件', category: '工具' }];
+const SKILLS_REGISTRY = [  { id: 'dhf-rpa-test-workflow', name: 'RPA 测试工作流', description: '测试 Bee Agent 基础连接和 RPA 操作', category: '测试' },  { id: 'dhf-163mail-task', name: '163 邮件发送', description: '自动化发送 163 邮件', category: '邮件' },  { id: 'dhf-outlook-mail-task', name: 'Outlook 邮件发送', description: '自动化发送 Outlook 邮件', category: '邮件' },  { id: 'dhf-qq-mail-task', name: 'QQ 邮件发送', description: '自动化发送 QQ 邮件', category: '邮件' },  { id: 'dhf-163news-task', name: '163 网易新闻', description: '获取 163 网易新闻资讯', category: '新闻' },  { id: 'dhf-bing-news-task', name: '百度新闻', description: '获取百度新闻资讯', category: '新闻' },  { id: 'dhf-google-news-task', name: 'Google 新闻', description: '获取 Google 新闻资讯', category: '新闻' },  { id: 'dhf-juejin-news-task', name: '掘金新闻', description: '获取掘金新闻资讯', category: '新闻' },  { id: 'dhf-tencent-news-task', name: '腾讯新闻', description: '获取腾讯新闻资讯', category: '新闻' },  { id: 'dhf-toutiao-news-task', name: '今日头条新闻', description: '获取今日头条资讯', category: '新闻' },  { id: 'dhf-douyin-hot-search-task', name: '抖音热搜', description: '获取抖音热搜榜单', category: '搜索' },  { id: 'dhf-google-hot-topics-task', name: 'Google 热搜', description: '获取 Google 热搜榜单', category: '搜索' },  { id: 'dhf-weibo-hot-search-task', name: '微博热搜', description: '获取微博热搜榜单', category: '搜索' },  { id: 'dhf-zhihu-hot-search-task', name: '知乎热搜', description: '获取知乎热榜', category: '搜索' },  { id: 'dhf-google-trends-task', name: 'Google 趋势', description: '获取 Google 搜索趋势', category: '趋势' },  { id: 'dhf-install-agent', name: '安装 Bee Agent', description: '安装 Bee Bee Agent 浏览器插件', category: '工具' }];
 
 class SkillUninstaller {
   constructor() {
@@ -33,7 +33,7 @@ class SkillUninstaller {
     }
     try {
       const marketplace = JSON.parse(fs.readFileSync(this.marketplaceFile, 'utf-8'));
-      const plugin = marketplace.plugins?.find(p => p.name === 'dhf-rpa-skills');
+      const plugin = marketplace.plugins?.find(p => p.name === 'bee-skills');
       if (!plugin?.skills) return [];
       return plugin.skills.map(s => path.basename(s));
     } catch (error) {
@@ -43,7 +43,7 @@ class SkillUninstaller {
 
   showWelcome() {
     console.log('\n╔══════════════════════════════════════════════════════════════╗');
-    console.log('║          DHF RPA Skills - 卸载技能                          ║');
+    console.log('║          Bee RPA Skills - 卸载技能                          ║');
     console.log('╚══════════════════════════════════════════════════════════════╝\n');
   }
 
@@ -128,19 +128,19 @@ class SkillUninstaller {
     }
 
     const marketplace = {
-      name: 'dhf-rpa-skills',
+      name: 'bee-skills',
       owner: {
-        name: 'DHF RPA Community',
-        email: 'community@dhf.pub'
+        name: 'Bee RPA Community',
+        email: 'social@dhf.pub'
       },
       metadata: {
-        description: 'DHF Agent RPA 自动化技能包',
+        description: 'Bee Agent RPA 自动化技能包',
         version: '1.0.0'
       },
       plugins: [
         {
-          name: 'dhf-rpa-skills',
-          description: 'DHF RPA 自动化技能',
+          name: 'bee-skills',
+          description: 'Bee RPA 自动化技能',
           source: './',
           strict: true,
           skills: remainingSkills.map(id => `./skills/${id}`)

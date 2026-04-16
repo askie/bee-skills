@@ -1,14 +1,14 @@
-# DHF RPA Skills
+# Bee RPA Skills
 
-> DHF Agent RPA 自动化技能包 - 按需安装，灵活使用
+> Bee Agent RPA 自动化技能包 - 按需安装，灵活使用
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Node Version](https://img.shields.io/badge/node-%3E%3D18.0.0-brightgreen)](https://nodejs.org)
-[![DHF Agent](https://img.shields.io/badge/DHF-Agent-blue)](https://dhf.pub)
+[![Bee Agent](https://img.shields.io/badge/Bee-Agent-blue)](https://dhf.pub)
 
 ## 简介
 
-这是一个为 Claude Code 定制的 DHF Agent RPA 自动化技能包，采用**按需安装**设计，你可以只选择需要的技能，避免不必要的依赖和文件。
+这是一个为 Claude Code 定制的 Bee Agent RPA 自动化技能包，采用**按需安装**设计，你可以只选择需要的技能，避免不必要的依赖和文件。
 
 ## 特性
 
@@ -23,7 +23,7 @@
 ### 测试类 (1)
 | 技能 | 描述 | 命令 |
 |------|------|------|
-| RPA 测试工作流 | 测试 DHF Agent 基础连接和 RPA 操作 | `/dhf-rpa-test-workflow` |
+| RPA 测试工作流 | 测试 Bee Agent 基础连接和 RPA 操作 | `/dhf-rpa-test-workflow` |
 
 ### 邮件类 (3)
 | 技能 | 描述 | 命令 |
@@ -58,7 +58,7 @@
 ### 工具类 (1)
 | 技能 | 描述 | 命令 |
 |------|------|------|
-| 安装 DHF Agent | 安装 DHF Bee Agent 浏览器插件 | `/dhf-install-agent` |
+| 安装 Bee Agent | 安装 Bee Bee Agent 浏览器插件 | `/dhf-install-agent` |
 
 **总计：18 个技能**
 
@@ -67,7 +67,7 @@
 ### 前置要求
 
 1. **Claude Code** - 安装最新的 Claude Code
-2. **DHF Agent** - 安装并运行 DHF Agent ([获取地址](https://dhf.pub))
+2. **Bee Agent** - 安装并运行 Bee Agent ([获取地址](https://dhf.pub))
 3. **Node.js** - 版本 >= 18.0.0
 
 ### 安装方式
@@ -76,11 +76,11 @@
 
 ```bash
 # 全局安装（所有项目可用）
-npm install -g @zx1998/dhf-rpa-installer
+npm install -g bee-skills
 dhf-rpa-install
 
 # 或在项目中安装
-npm install @zx1998/dhf-rpa-installer
+npm install bee-skills
 npm run install
 ```
 
@@ -88,8 +88,8 @@ npm run install
 
 ```bash
 # 1. 克隆仓库
-git clone https://github.com/YOUR_USERNAME/dhf-rpa-skills.git
-cd dhf-rpa-skills
+git clone https://github.com/YOUR_USERNAME/bee-skills.git
+cd bee-skills
 
 # 2. 安装依赖
 npm install
@@ -167,7 +167,7 @@ node scripts/install-smart.js --silent --skill=dhf-rpa-qq-mail-task,dhf-google-n
 ## 项目结构
 
 ```
-dhf-rpa-skills/
+bee-skills/
 ├── skills/              # 所有技能源码
 │   ├── dhf-rpa-test-workflow/
 │   ├── dhf-rpa-163mail-task/
@@ -201,7 +201,7 @@ dhf-rpa-skills/
 
 1. **直接运行安装脚本**：
    ```bash
-   cd E:\aiwork\skillsGenerate\dhf-rpa-skills
+   cd E:\aiwork\skillsGenerate\bee-skills
    npm run install
    ```
 
@@ -212,14 +212,14 @@ dhf-rpa-skills/
 3. **验证 marketplace.json**：
    ```bash
    # 全局
-   cat C:\Users\Administrator\.claude\plugins\marketplaces\dhf-rpa-skills.json
+   cat C:\Users\Administrator\.claude\plugins\marketplaces\bee-skills.json
 
    # 项目
-   cat E:\aiwork\skillsGenerate\.claude\plugins\marketplaces\dhf-rpa-skills.json
+   cat E:\aiwork\skillsGenerate\.claude\plugins\marketplaces\bee-skills.json
    ```
 
 4. **告诉 AI 使用正确命令**：
-   > 请运行：`cd E:\aiwork\skillsGenerate\dhf-rpa-skills && npm run install`
+   > 请运行：`cd E:\aiwork\skillsGenerate\bee-skills && npm run install`
 
 ### 安装失败
 
@@ -238,7 +238,7 @@ dhf-rpa-skills/
 
 ## 相关资源
 
-- **DHF 官网：** https://dhf.pub
+- **Bee 官网：** https://dhf.pub
 - **任务市场：** https://dhf.pub/nl/explore
 - **帮助中心：** https://dhf.pub/en/help
 

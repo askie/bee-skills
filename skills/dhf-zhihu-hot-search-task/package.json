@@ -1,7 +1,7 @@
 {
   "name": "@dhf-rpa/zhihu-hot-search",
   "version": "1.0.1",
-  "description": "DHF Agent 知乎热榜抓取任务",
+  "description": "Bee Agent 知乎热榜抓取任务",
   "type": "module",
   "main": "scripts/main.js",
   "bin": {
@@ -17,7 +17,7 @@
     "hot-search",
     "热榜"
   ],
-  "author": "DHF RPA Skills",
+  "author": "Bee RPA Skills",
   "license": "MIT",
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.0.4"
@@ -27,11 +27,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/your-username/dhf-rpa-skills.git",
+    "url": "https://github.com/askie/bee-skills.git",
     "directory": "dhf-zhihu-hot-search-task"
   },
-  "homepage": "https://github.com/your-username/dhf-rpa-skills#readme",
+  "homepage": "https://github.com/askie/bee-skills#readme",
   "bugs": {
-    "url": "https://github.com/your-username/dhf-rpa-skills/issues"
+    "url": "https://github.com/askie/bee-skills/issues"
   }
 }

@@ -1,16 +1,16 @@
-# DHF RPA Skills Installer
+# Bee RPA Skills Installer
 
-这是 DHF RPA Skills 的智能安装器，支持按需安装技能。
+这是 Bee RPA Skills 的智能安装器，支持按需安装技能。
 
 ## 重要：正确安装方式
 
-当用户要求安装 DHF RPA Skills 时，**必须使用安装脚本**，不要手动复制文件。
+当用户要求安装 Bee RPA Skills 时，**必须使用安装脚本**，不要手动复制文件。
 
 ### 正确的安装流程
 
 ```bash
 # 1. 进入安装器目录
-cd E:\aiwork\skillsGenerate\dhf-rpa-skills
+cd E:\aiwork\skillsGenerate\bee-skills
 
 # 2. 运行智能安装器（推荐）
 npm run install
@@ -40,19 +40,19 @@ node scripts/install-smart.js --skill=dhf-rpa-qq-mail-task
 
 **用户**: "安装 QQ 邮件技能"
 ```bash
-cd E:\aiwork\skillsGenerate\dhf-rpa-skills
+cd E:\aiwork\skillsGenerate\bee-skills
 node scripts/install-smart.js --skill=dhf-rpa-qq-mail-task
 ```
 
 **用户**: "安装所有技能"
 ```bash
-cd E:\aiwork\skillsGenerate\dhf-rpa-skills
+cd E:\aiwork\skillsGenerate\bee-skills
 npm run install
 ```
 
 **用户**: "全局安装"
 ```bash
-cd E:\aiwork\skillsGenerate\dhf-rpa-skills
+cd E:\aiwork\skillsGenerate\bee-skills
 npm run install:global
 ```
 
@@ -73,7 +73,7 @@ npm run install:global
 - `dhf-weibo-hot-search-task` - 微博热搜
 - `dhf-zhihu-hot-search-task` - 知乎热搜
 - `dhf-google-trends-task` - Google 趋势
-- `dhf-install-agent` - 安装 DHF Agent
+- `dhf-install-agent` - 安装 Bee Agent
 
 ## 验证安装
 
