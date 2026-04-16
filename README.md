@@ -20,47 +20,66 @@
 
 ## 包含的技能
 
-### 测试类 (1)
-| 技能 | 描述 | 命令 |
-|------|------|------|
-| RPA 测试工作流 | 测试 Bee Agent 基础连接和 RPA 操作 | `/dhf-rpa-test-workflow` |
+> 📦 **总计 31+ 个技能**，涵盖 AI 对话、搜索、邮件、新闻、热搜等多个领域
 
-### 邮件类 (3)
+### 🤖 AI 聊天类 (5)
 | 技能 | 描述 | 命令 |
 |------|------|------|
-| 163 邮件发送 | 自动化发送 163 邮件 | `/dhf-163mail-task` |
-| Outlook 邮件发送 | 自动化发送 Outlook 邮件 | `/dhf-outlook-mail-task` |
-| QQ 邮件发送 | 自动化发送 QQ 邮件 | `/dhf-rpa-qq-mail-task` |
+| ChatGPT | OpenAI ChatGPT AI 问答 | `/chatgpt-ai-task` |
+| DeepSeek | DeepSeek AI 问答 | `/deepseek-ai-task` |
+| Kimi | 月之暗面 Kimi AI 问答 | `/kimi-ai-task` |
+| 通义千问 | 阿里通义千问 AI 问答 | `/qwen-ai-task` |
+| Gemini | Google Gemini AI 问答 | `/gemini-ai-task` |
 
-### 新闻资讯类 (6)
+### 🔍 搜索引擎类 (6)
 | 技能 | 描述 | 命令 |
 |------|------|------|
-| 163 网易新闻 | 获取 163 网易新闻资讯 | `/dhf-163news-task` |
+| Google 搜索 | 谷歌搜索引擎 | `/google-search-task` |
+| Bing 搜索 | 微软必应搜索 | `/bing-search-task` |
+| DuckDuckGo | 隐私搜索引擎 | `/duckduckgo-search-task` |
+| 搜狗微信 | 微信公众号文章搜索 | `/sogou-wechat-search-task` |
+| Naver | 韩国 Naver 搜索 | `/naver-search-task` |
+| Yahoo 日本 | 日本 Yahoo 搜索 | `/yahoo-japan-search-task` |
+
+### 📧 邮件类 (6)
+| 技能 | 描述 | 命令 |
+|------|------|------|
+| 163 邮件 | 自动化发送 163 邮件 | `/dhf-163mail-task` |
+| QQ 邮件 | 自动化发送 QQ 邮件 | `/dhf-qq-mail-task` |
+| Outlook | 自动化发送 Outlook 邮件 | `/dhf-outlook-mail-task` |
+| 163 邮件(RPA) | RPA 工作流版本 | `/dhf-rpa-163mail-task` |
+| QQ 邮件(RPA) | RPA 工作流版本 | `/dhf-rpa-qq-mail-task` |
+| Outlook(RPA) | RPA 工作流版本 | `/dhf-rpa-outlook-mail-task` |
+
+### 📰 新闻资讯类 (6)
+| 技能 | 描述 | 命令 |
+|------|------|------|
+| 163 网易新闻 | 获取 163 网易新闻 | `/dhf-163news-task` |
 | 百度新闻 | 获取百度新闻资讯 | `/dhf-bing-news-task` |
-| Google 新闻 | 获取 Google 新闻资讯 | `/dhf-google-news-task` |
-| 掘金新闻 | 获取掘金新闻资讯 | `/dhf-juejin-news-task` |
+| Google 新闻 | 获取 Google 新闻 | `/dhf-google-news-task` |
+| 掘金新闻 | 获取掘金技术资讯 | `/dhf-juejin-news-task` |
 | 腾讯新闻 | 获取腾讯新闻资讯 | `/dhf-tencent-news-task` |
-| 今日头条新闻 | 获取今日头条资讯 | `/dhf-toutiao-news-task` |
+| 今日头条 | 获取今日头条资讯 | `/dhf-toutiao-news-task` |
 
-### 搜索类 (4)
+### 🔥 热搜榜单类 (4)
 | 技能 | 描述 | 命令 |
 |------|------|------|
 | 抖音热搜 | 获取抖音热搜榜单 | `/dhf-douyin-hot-search-task` |
-| Google 热搜 | 获取 Google 热搜榜单 | `/dhf-google-hot-topics-task` |
+| Google 热搜 | 获取 Google 热搜 | `/dhf-google-hot-topics-task` |
 | 微博热搜 | 获取微博热搜榜单 | `/dhf-weibo-hot-search-task` |
-| 知乎热搜 | 获取知乎热榜 | `/dhf-zhihu-hot-search-task` |
+| 知乎热榜 | 获取知乎热榜 | `/dhf-zhihu-hot-search-task` |
 
-### 趋势类 (1)
+### 📈 趋势分析类 (1)
 | 技能 | 描述 | 命令 |
 |------|------|------|
 | Google 趋势 | 获取 Google 搜索趋势 | `/dhf-google-trends-task` |
 
-### 工具类 (1)
+### 🛠️ 工具类 (3)
 | 技能 | 描述 | 命令 |
 |------|------|------|
-| 安装 Bee Agent | 安装 Bee Bee Agent 浏览器插件 | `/dhf-install-agent` |
-
-**总计：18 个技能**
+| 测试工作流 | 测试 Bee Agent 连接 | `/dhf-rpa-test-workflow` |
+| 安装 Agent | 安装 Bee Agent 浏览器插件 | `/dhf-install-agent` |
+| 携程行程 | 携程行程工作流 | `/ctrip-itinerary-workflow` |
 
 ## 快速开始
 
@@ -88,7 +107,7 @@ npm run install
 
 ```bash
 # 1. 克隆仓库
-git clone https://github.com/YOUR_USERNAME/bee-skills.git
+git clone https://github.com/askie/bee-skills.git
 cd bee-skills
 
 # 2. 安装依赖
@@ -133,10 +152,25 @@ npm run list
 安装技能后，在 Claude Code 中使用：
 
 ```
-/dhf-rpa-test-workflow
+# AI 对话
+/chatgpt-ai-task -k "你好"
+/deepseek-ai-task -k "帮我写代码"
+
+# 搜索
+/google-search-task -k "关键词"
+/bing-search-task -k "关键词"
+
+# 邮件
 /dhf-163mail-task
-/dhf-outlook-mail-task
 /dhf-qq-mail-task
+
+# 新闻/热搜
+/dhf-163news-task
+/dhf-douyin-hot-search-task
+/dhf-zhihu-hot-search-task
+
+# 工具
+/dhf-rpa-test-workflow --check
 ```
 
 ## 命令
