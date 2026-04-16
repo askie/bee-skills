@@ -1,5 +1,5 @@
 {
-  "name": "bee-skills",
+  "name": "@dhfpub/bee-skills",
   "version": "1.2.2",
   "description": "Bee Agent RPA 自动化技能包 - 按需安装",
   "private": false,
