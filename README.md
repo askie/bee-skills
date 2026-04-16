@@ -8,15 +8,16 @@
 
 ## 简介
 
-这是一个为 Claude Code 定制的 Bee Agent RPA 自动化技能包，采用**按需安装**设计，你可以只选择需要的技能，避免不必要的依赖和文件。
+汇集了 30+ 个经过验证的 RPA 自动化技能，涵盖 AI 对话、搜索引擎、邮件发送、新闻资讯、热搜榜单等常用场景。
+
+每个技能都是独立的工作流或任务，可以按需安装使用。基于 Bee Agent 执行层，支持与 Claude Code、Cursor 等 AI 工具协作调试，调试完成后即可独立运行。
 
 ## 特性
 
-- ✅ **按需安装** - 只安装你需要的技能
-- ✅ **统一管理** - 所有技能在一个仓库中
-- ✅ **交互式安装** - 友好的命令行界面
-- ✅ **符号链接** - 不复制文件，节省空间
-- ✅ **动态配置** - 自动生成插件配置
+- ✅ **按需安装** - 只安装你需要的技能，避免冗余
+- ✅ **即开即用** - 所有技能经过验证，可直接使用
+- ✅ **灵活调用** - 支持 AI 工具调用或独立运行
+- ✅ **统一管理** - 所有技能在一个仓库中，方便维护更新
 
 ## 包含的技能
 
@@ -84,9 +85,8 @@
 
 ### 前置要求
 
-1. **Claude Code** - 安装最新的 Claude Code
-2. **Bee Agent** - 安装并运行 Bee Agent ([获取地址](https://dhf.pub))
-3. **Node.js** - 版本 >= 18.0.0
+1. **Bee Agent** - 技能执行依赖 ([获取地址](https://dhf.pub))
+2. **Node.js** - 版本 >= 18.0.0
 
 ### 安装方式
 
@@ -116,7 +116,7 @@ npm install
 npm run install
 
 # 4. 选择你要安装的技能
-# 5. 重新启动 Claude Code
+# 5. 重新启动你的 AI 工具
 ```
 
 #### 安装模式说明
@@ -130,6 +130,8 @@ npm run install
 - 安装位置：`项目目录\.claude\skills`
 - 仅当前项目可用
 - 复制文件到项目目录
+
+> 💡 **提示**：本技能包通过 MCP 协议工作，安装后可在任何支持 MCP 的 AI 工具中调用。
 
 **手动指定模式**：
 ```bash
@@ -148,7 +150,7 @@ npm run list
 
 ## 使用方法
 
-安装技能后，在 Claude Code 中使用：
+安装技能后，在支持 MCP 的 AI 工具中调用：
 
 ```
 # AI 对话
@@ -186,7 +188,7 @@ npm run list
 
 ## AI 助手安装指南
 
-如果你是 AI 助手（Claude Code、GLM 等），请阅读 **[AI-INSTALL-GUIDE.md](AI-INSTALL-GUIDE.md)** 了解正确的安装流程。
+如果你正在使用 AI 助手（如 Claude Code、Cursor、GLM 等），请阅读 **[AI-INSTALL-GUIDE.md](AI-INSTALL-GUIDE.md)** 了解正确的安装流程。
 
 **快速命令**：
 ```bash
@@ -230,7 +232,7 @@ bee-skills/
 
 ### AI 助手没有正确安装技能
 
-如果你让 AI 助手安装技能，但它没有正确安装到期望的位置，请：
+如果你正在使用 AI 助手，但技能没有正确安装到期望的位置，请：
 
 1. **直接运行安装脚本**：
    ```bash
@@ -265,13 +267,16 @@ bee-skills/
 
 检查：
 - 已运行 `npm run install`
-- 已重启 Claude Code
+- 已重启你的 AI 工具
 - `~/.claude/skills/` 或 `项目\.claude\skills/` 中存在技能链接
 - marketplace.json 包含正确的技能列表
+- Bee Agent 正在运行
 
 ## 相关资源
 
-- **Bee 官网：** https://dhf.pub
+- **DHF 官网：** https://dhf.pub/zh
+- **帮助中心：** https://dhf.pub/zh/help
+- **任务市场：** https://dhf.pub/nl/explore
 - **任务市场：** https://dhf.pub/nl/explore
 - **帮助中心：** https://dhf.pub/en/help
 
