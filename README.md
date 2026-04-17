@@ -1,295 +1,164 @@
 # Bee RPA Skills
 
-> Bee Agent RPA 自动化技能包 - 按需安装，灵活使用
+> 汇集 30+ 个 RPA 自动化技能，涵盖 AI 对话、搜索引擎、邮件发送、新闻资讯、热搜榜单等常用场景。
+
+每个技能都是独立的工作流或任务，可按需安装使用。基于 Bee Agent 执行层，支持与 Claude Code、Cursor 等 AI 工具协作。
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Node Version](https://img.shields.io/badge/node-%3E%3D18.0.0-brightgreen)](https://nodejs.org)
 [![Bee Agent](https://img.shields.io/badge/Bee-Agent-blue)](https://dhf.pub)
 
-## 简介
+---
 
-汇集了 30+ 个经过验证的 RPA 自动化技能，涵盖 AI 对话、搜索引擎、邮件发送、新闻资讯、热搜榜单等常用场景。
+## 技能速查
 
-每个技能都是独立的工作流或任务，可以按需安装使用。基于 Bee Agent 执行层，支持与 Claude Code、Cursor 等 AI 工具协作调试，调试完成后即可独立运行。
+### 🤖 AI 对话
 
-## 特性
+| 技能     | 描述                   | 命令                          |
+| -------- | ---------------------- | ----------------------------- |
+| ChatGPT  | OpenAI ChatGPT AI 问答 | `/chatgpt-ai-task -k "问题"`  |
+| DeepSeek | DeepSeek AI 问答       | `/deepseek-ai-task -k "问题"` |
+| Kimi     | 月之暗面 Kimi AI 问答  | `/kimi-ai-task -k "问题"`     |
+| 通义千问 | 阿里通义千问 AI 问答   | `/qwen-ai-task -k "问题"`     |
+| Gemini   | Google Gemini AI 问答  | `/gemini-ai-task -k "问题"`   |
 
-- ✅ **按需安装** - 只安装你需要的技能，避免冗余
-- ✅ **即开即用** - 所有技能经过验证，可直接使用
-- ✅ **灵活调用** - 支持 AI 工具调用或独立运行
-- ✅ **统一管理** - 所有技能在一个仓库中，方便维护更新
+### 🔍 搜索引擎
 
-## 包含的技能
+| 技能       | 描述               | 命令                                    |
+| ---------- | ------------------ | --------------------------------------- |
+| Google     | 谷歌搜索           | `/google-search-task -k "关键词"`       |
+| Bing       | 微软必应搜索       | `/bing-search-task -k "关键词"`         |
+| DuckDuckGo | 隐私搜索           | `/duckduckgo-search-task -k "关键词"`   |
+| 搜狗微信   | 微信公众号文章搜索 | `/sogou-wechat-search-task -k "关键词"` |
+| Naver      | 韩国搜索引擎       | `/naver-search-task -k "关键词"`        |
+| Yahoo 日本 | 日本搜索引擎       | `/yahoo-japan-search-task -k "关键词"`  |
 
-> 📦 **总计 30+ 个技能**，涵盖 AI 对话、搜索、邮件、新闻、热搜等多个领域
+### 📧 邮件发送
 
-### 🤖 AI 聊天类 (5)
-| 技能 | 描述 | 命令 |
-|------|------|------|
-| ChatGPT | OpenAI ChatGPT AI 问答 | `/chatgpt-ai-task` |
-| DeepSeek | DeepSeek AI 问答 | `/deepseek-ai-task` |
-| Kimi | 月之暗面 Kimi AI 问答 | `/kimi-ai-task` |
-| 通义千问 | 阿里通义千问 AI 问答 | `/qwen-ai-task` |
-| Gemini | Google Gemini AI 问答 | `/gemini-ai-task` |
+| 技能     | 描述                    | 命令                     |
+| -------- | ----------------------- | ------------------------ |
+| 163 邮件 | 自动化发送 163 邮件     | `/dhf-163mail-task`      |
+| QQ 邮件  | 自动化发送 QQ 邮件      | `/dhf-qq-mail-task`      |
+| Outlook  | 自动化发送 Outlook 邮件 | `/dhf-outlook-mail-task` |
 
-### 🔍 搜索引擎类 (6)
-| 技能 | 描述 | 命令 |
-|------|------|------|
-| Google 搜索 | 谷歌搜索引擎 | `/google-search-task` |
-| Bing 搜索 | 微软必应搜索 | `/bing-search-task` |
-| DuckDuckGo | 隐私搜索引擎 | `/duckduckgo-search-task` |
-| 搜狗微信 | 微信公众号文章搜索 | `/sogou-wechat-search-task` |
-| Naver | 韩国 Naver 搜索 | `/naver-search-task` |
-| Yahoo 日本 | 日本 Yahoo 搜索 | `/yahoo-japan-search-task` |
+### 📰 新闻资讯
 
-### 📧 邮件类 (6)
-| 技能 | 描述 | 命令 |
-|------|------|------|
-| 163 邮件 | 自动化发送 163 邮件 | `/dhf-163mail-task` |
-| QQ 邮件 | 自动化发送 QQ 邮件 | `/dhf-qq-mail-task` |
-| Outlook | 自动化发送 Outlook 邮件 | `/dhf-outlook-mail-task` |
-| 163 邮件(RPA) | RPA 工作流版本 | `/dhf-rpa-163mail-task` |
-| QQ 邮件(RPA) | RPA 工作流版本 | `/dhf-rpa-qq-mail-task` |
-| Outlook(RPA) | RPA 工作流版本 | `/dhf-rpa-outlook-mail-task` |
+| 技能         | 描述              | 命令                     |
+| ------------ | ----------------- | ------------------------ |
+| 163 网易新闻 | 获取 163 网易新闻 | `/dhf-163news-task`      |
+| 百度新闻     | 获取百度新闻资讯  | `/dhf-bing-news-task`    |
+| Google 新闻  | 获取 Google 新闻  | `/dhf-google-news-task`  |
+| 掘金         | 获取掘金技术资讯  | `/dhf-juejin-news-task`  |
+| 腾讯新闻     | 获取腾讯新闻资讯  | `/dhf-tencent-news-task` |
+| 今日头条     | 获取今日头条资讯  | `/dhf-toutiao-news-task` |
 
-### 📰 新闻资讯类 (6)
-| 技能 | 描述 | 命令 |
-|------|------|------|
-| 163 网易新闻 | 获取 163 网易新闻 | `/dhf-163news-task` |
-| 百度新闻 | 获取百度新闻资讯 | `/dhf-bing-news-task` |
-| Google 新闻 | 获取 Google 新闻 | `/dhf-google-news-task` |
-| 掘金新闻 | 获取掘金技术资讯 | `/dhf-juejin-news-task` |
-| 腾讯新闻 | 获取腾讯新闻资讯 | `/dhf-tencent-news-task` |
-| 今日头条 | 获取今日头条资讯 | `/dhf-toutiao-news-task` |
+### 🔥 热搜榜单
 
-### 🔥 热搜榜单类 (4)
-| 技能 | 描述 | 命令 |
-|------|------|------|
-| 抖音热搜 | 获取抖音热搜榜单 | `/dhf-douyin-hot-search-task` |
+| 技能        | 描述             | 命令                          |
+| ----------- | ---------------- | ----------------------------- |
+| 抖音热搜    | 获取抖音热搜榜单 | `/dhf-douyin-hot-search-task` |
 | Google 热搜 | 获取 Google 热搜 | `/dhf-google-hot-topics-task` |
-| 微博热搜 | 获取微博热搜榜单 | `/dhf-weibo-hot-search-task` |
-| 知乎热榜 | 获取知乎热榜 | `/dhf-zhihu-hot-search-task` |
+| 微博热搜    | 获取微博热搜榜单 | `/dhf-weibo-hot-search-task`  |
+| 知乎热榜    | 获取知乎热榜     | `/dhf-zhihu-hot-search-task`  |
 
-### 📈 趋势分析类 (1)
-| 技能 | 描述 | 命令 |
-|------|------|------|
-| Google 趋势 | 获取 Google 搜索趋势 | `/dhf-google-trends-task` |
+### 📈 趋势分析
 
-### 🛠️ 工具类 (2)
-| 技能 | 描述 | 命令 |
-|------|------|------|
-| 测试工作流 | 测试 Bee Agent 连接 | `/dhf-rpa-test-workflow` |
-| 安装 Agent | 安装 Bee Agent 浏览器插件 | `/dhf-install-agent` |
+| 技能        | 描述                 | 命令                                  |
+| ----------- | -------------------- | ------------------------------------- |
+| Google 趋势 | 获取 Google 搜索趋势 | `/dhf-google-trends-task -k "关键词"` |
+
+### 🛠️ 工具
+
+| 技能       | 描述                      | 命令                             |
+| ---------- | ------------------------- | -------------------------------- |
+| 测试工作流 | 测试 Bee Agent 连接       | `/dhf-rpa-test-workflow --check` |
+| 安装 Agent | 安装 Bee Agent 浏览器插件 | `/dhf-install-agent`             |
+
+---
 
 ## 快速开始
 
-### 前置要求
+### 1. 前置要求
 
-1. **Bee Agent** - 技能执行依赖 ([获取地址](https://dhf.pub))
-2. **Node.js** - 版本 >= 18.0.0
+- **Bee Agent** - 技能执行依赖，从 [dhf.pub](https://dhf.pub) 获取
+- **Node.js** - 版本 >= 18.0.0
 
-### 安装方式
+### 2. 安装
 
-#### 方式 1：使用 npm 安装（推荐）
+**方式一：npm 全局安装（推荐）**
 
 ```bash
-# 全局安装
 npm install -g @dhfpub/bee-skills
-
-# 安装技能
-bee-skills
-
-# 或在项目中安装
-npm install @dhfpub/bee-skills
-npm run install
 ```
 
-#### 方式 2：从 GitHub 克隆
+**方式二：从 GitHub 克隆**
 
 ```bash
-# 1. 克隆仓库
 git clone https://github.com/askie/bee-skills.git
 cd bee-skills
-
-# 2. 安装依赖
 npm install
-
-# 3. 运行智能安装器（自动检测全局/项目级）
 npm run install
-
-# 4. 选择你要安装的技能
-# 5. 重新启动你的 AI 工具
 ```
 
-#### 安装模式说明
+### 3. 使用技能
 
-**全局安装**（默认）：
-- 安装位置：`C:\Users\YourUser\.claude\skills`
-- 所有项目都可以使用这些技能
-- 使用符号链接节省空间
-
-**项目级安装**：
-- 安装位置：`项目目录\.claude\skills`
-- 仅当前项目可用
-- 复制文件到项目目录
-
-> 💡 **提示**：本技能包通过 MCP 协议工作，安装后可在任何支持 MCP 的 AI 工具中调用。
-
-**手动指定模式**：
-```bash
-# 强制全局安装
-npm run install:global
-
-# 强制项目级安装
-npm run install:project
-```
-
-### 查看已安装技能
-
-```bash
-npm run list
-```
-
-## 使用方法
-
-安装技能后，在支持 MCP 的 AI 工具中调用：
+安装完成后，在 AI 工具中直接调用：
 
 ```
-# AI 对话
-/chatgpt-ai-task -k "你好"
-/deepseek-ai-task -k "帮我写代码"
-
-# 搜索
-/google-search-task -k "关键词"
-/bing-search-task -k "关键词"
-
-# 邮件
+/chatgpt-ai-task -k "帮我写代码"
+/bing-search-task -k "最新科技新闻"
 /dhf-163mail-task
-/dhf-qq-mail-task
-
-# 新闻/热搜
-/dhf-163news-task
 /dhf-douyin-hot-search-task
-/dhf-zhihu-hot-search-task
-
-# 工具
-/dhf-rpa-test-workflow --check
 ```
 
-## 命令
+---
 
-| 命令 | 说明 |
-|------|------|
-| `npm run install` | 智能安装（自动检测全局/项目级） |
-| `npm run install:global` | 强制全局安装 |
-| `npm run install:project` | 强制项目级安装 |
-| `npm run install:interactive` | 交互式安装（旧版） |
-| `npm run uninstall` | 卸载已安装的技能 |
-| `npm run list` | 查看所有技能 |
-| `npm run sync` | 同步已安装的技能 |
+## 安装
 
-## AI 助手安装指南
+### 安装命令
 
-如果你正在使用 AI 助手（如 Claude Code、Cursor、GLM 等），请阅读 **[AI-INSTALL-GUIDE.md](AI-INSTALL-GUIDE.md)** 了解正确的安装流程。
+| 命令                      | 说明                            |
+| ------------------------- | ------------------------------- |
+| `npm run install`         | 智能安装（自动检测全局/项目级） |
+| `npm run install:global`  | 强制全局安装                    |
+| `npm run install:project` | 强制项目级安装                  |
+| `npm run uninstall`       | 卸载已安装的技能                |
+| `npm run list`            | 查看所有技能                    |
 
-**快速命令**：
-```bash
-# 安装指定技能
-node scripts/install-smart.js --skill=dhf-rpa-qq-mail-task
+### 安装位置
 
-# 静默安装（用于自动化）
-node scripts/install-smart.js --silent --skill=dhf-rpa-qq-mail-task,dhf-google-news-task
-```
+- **全局安装**：`~/.claude/skills/` - 所有项目可用
+- **项目级安装**：`项目目录/.claude/skills/` - 仅当前项目可用
 
-## 项目结构
+---
 
-```
-bee-skills/
-├── skills/              # 所有技能源码
-│   ├── dhf-rpa-test-workflow/
-│   ├── dhf-rpa-163mail-task/
-│   └── ...
-├── scripts/             # 安装和工具脚本
-│   ├── install.js
-│   ├── uninstall.js
-│   ├── list.js
-│   └── sync.js
-├── .claude-plugin/      # 插件配置（动态生成）
-│   └── marketplace.json
-├── package.json
-└── README.md
-```
+## 常见问题
 
-## 开发
+### AI 工具找不到技能？
 
-### 添加新技能
+确保已运行 `npm run install` 并重启 AI 工具。
 
-1. 在 `skills/` 目录创建新技能目录
-2. 复制技能模板文件
-3. 在 `scripts/install.js` 的 `SKILLS_REGISTRY` 中注册
+### 技能不生效？
 
-详细指南：[开发文档](DEVELOPMENT.md)
+检查 Bee Agent 是否正在运行。
 
-## 故障排除
+### 安装失败？
 
-### AI 助手没有正确安装技能
+确保 Node.js 版本 >= 18.0.0，Windows 可能需要管理员权限。
 
-如果你正在使用 AI 助手，但技能没有正确安装到期望的位置，请：
-
-1. **直接运行安装脚本**：
-   ```bash
-   cd E:\aiwork\skillsGenerate\bee-skills
-   npm run install
-   ```
-
-2. **检查安装位置**：
-   - 全局：`C:\Users\Administrator\.claude\skills`
-   - 项目：`E:\aiwork\skillsGenerate\.claude\skills`
-
-3. **验证 marketplace.json**：
-   ```bash
-   # 全局
-   cat C:\Users\Administrator\.claude\plugins\marketplaces\bee-skills.json
-
-   # 项目
-   cat E:\aiwork\skillsGenerate\.claude\plugins\marketplaces\bee-skills.json
-   ```
-
-4. **告诉 AI 使用正确命令**：
-   > 请运行：`cd E:\aiwork\skillsGenerate\bee-skills && npm run install`
-
-### 安装失败
-
-确保：
-- Node.js 版本 >= 18.0.0
-- 有写入 `~/.claude/skills/` 的权限
-- Windows 上可能需要管理员权限
-
-### 技能不生效
-
-检查：
-- 已运行 `npm run install`
-- 已重启你的 AI 工具
-- `~/.claude/skills/` 或 `项目\.claude\skills/` 中存在技能链接
-- marketplace.json 包含正确的技能列表
-- Bee Agent 正在运行
+---
 
 ## 相关资源
 
-- **DHF 官网：** https://dhf.pub/zh
-- **帮助中心：** https://dhf.pub/zh/help
-- **任务市场：** https://dhf.pub/nl/explore
-- **任务市场：** https://dhf.pub/nl/explore
-- **帮助中心：** https://dhf.pub/en/help
+- **DHF 官网**：https://dhf.pub
+- **任务市场**：https://dhf.pub/nl/explore
+- **帮助中心**：https://dhf.pub/zh/help
+
+---
 
 ## 许可证
 
 MIT License - 详见 [LICENSE](LICENSE)
 
-## 贡献
-
-欢迎提交 Issue 和 Pull Request！
-
 ---
 
-**注意：** 使用时请确保遵守相关网站的服务条款。
+**注意**：使用时请遵守相关网站的服务条款。
