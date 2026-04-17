@@ -150,6 +150,17 @@ const SKILLS_REGISTRY = [
     tags: ['publish', 'zhihu', '视频'],
     command: 'dhf-zhihu-video-publish-task'
   },
+  {
+    id: 'dhf-xiaohongshu-video-publish-task',
+    name: '小红书视频发布',
+    description: '自动发布视频笔记到小红书平台',
+    category: '发布',
+    version: '1.0.0',
+    dependencies: [],
+    size: '2MB',
+    tags: ['publish', 'xiaohongshu', '视频'],
+    command: 'dhf-xiaohongshu-video-publish-task'
+  },
   // 搜索类
   {
     id: 'dhf-douyin-hot-search-task',
