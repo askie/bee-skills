@@ -61,6 +61,7 @@
 | 头条视频发布   | 自动发布视频到今日头条 | `/dhf-toutiao-video-publish-task -t "标题" -v "视频"`   |
 | 微博视频发布   | 自动发布视频到微博     | `/dhf-weibo-video-publish-task -t "标题" -v "视频"`     |
 | 快手视频发布   | 自动发布视频到快手     | `/dhf-kuaishou-video-publish-task -t "标题" -v "视频"` |
+| 抖音视频发布   | 自动发布视频到抖音     | `/dhf-douyin-video-publish-task -t "标题" -v "视频"`   |
 
 ### 🔥 热搜榜单
 

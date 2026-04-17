@@ -163,6 +163,15 @@ const SKILLS_REGISTRY = [
     size: '2MB',
     command: 'dhf-kuaishou-video-publish-task'
   },
+  {
+    id: 'dhf-douyin-video-publish-task',
+    name: '抖音视频发布',
+    description: '自动发布视频笔记到抖音平台',
+    category: '发布',
+    version: '1.0.0',
+    size: '2MB',
+    command: 'dhf-douyin-video-publish-task'
+  },
   // 搜索类
   {
     id: 'dhf-douyin-hot-search-task',
