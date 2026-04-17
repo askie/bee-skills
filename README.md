@@ -60,6 +60,7 @@
 | 小红书视频发布 | 自动发布视频到小红书   | `/dhf-xiaohongshu-video-publish-task -t "标题" -v "视频"` |
 | 头条视频发布   | 自动发布视频到今日头条 | `/dhf-toutiao-video-publish-task -t "标题" -v "视频"`   |
 | 微博视频发布   | 自动发布视频到微博     | `/dhf-weibo-video-publish-task -t "标题" -v "视频"`     |
+| 快手视频发布   | 自动发布视频到快手     | `/dhf-kuaishou-video-publish-task -t "标题" -v "视频"` |
 
 ### 🔥 热搜榜单
 

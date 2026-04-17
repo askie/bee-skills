@@ -154,6 +154,15 @@ const SKILLS_REGISTRY = [
     size: '2MB',
     command: 'dhf-weibo-video-publish-task'
   },
+  {
+    id: 'dhf-kuaishou-video-publish-task',
+    name: '快手视频发布',
+    description: '自动发布视频笔记到快手平台',
+    category: '发布',
+    version: '1.0.0',
+    size: '2MB',
+    command: 'dhf-kuaishou-video-publish-task'
+  },
   // 搜索类
   {
     id: 'dhf-douyin-hot-search-task',
