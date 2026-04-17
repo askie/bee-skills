@@ -58,6 +58,7 @@
 | 掘金发布       | 自动发布文章到掘金     | `/dhf-juejin-publish-task -t "标题" -c "内容"`            |
 | 知乎视频发布   | 自动发布视频到知乎     | `/dhf-zhihu-video-publish-task -t "标题" -v "视频"`     |
 | 小红书视频发布 | 自动发布视频到小红书   | `/dhf-xiaohongshu-video-publish-task -t "标题" -v "视频"` |
+| 头条视频发布   | 自动发布视频到今日头条 | `/dhf-toutiao-video-publish-task -t "标题" -v "视频"`   |
 
 ### 🔥 热搜榜单
 

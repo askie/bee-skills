@@ -161,6 +161,17 @@ const SKILLS_REGISTRY = [
     tags: ['publish', 'xiaohongshu', '视频'],
     command: 'dhf-xiaohongshu-video-publish-task'
   },
+  {
+    id: 'dhf-toutiao-video-publish-task',
+    name: '头条视频发布',
+    description: '自动发布视频笔记到今日头条平台',
+    category: '发布',
+    version: '1.0.0',
+    dependencies: [],
+    size: '2MB',
+    tags: ['publish', 'toutiao', '视频'],
+    command: 'dhf-toutiao-video-publish-task'
+  },
   // 搜索类
   {
     id: 'dhf-douyin-hot-search-task',

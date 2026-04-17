@@ -136,6 +136,15 @@ const SKILLS_REGISTRY = [
     size: '2MB',
     command: 'dhf-xiaohongshu-video-publish-task'
   },
+  {
+    id: 'dhf-toutiao-video-publish-task',
+    name: '头条视频发布',
+    description: '自动发布视频笔记到今日头条平台',
+    category: '发布',
+    version: '1.0.0',
+    size: '2MB',
+    command: 'dhf-toutiao-video-publish-task'
+  },
   // 搜索类
   {
     id: 'dhf-douyin-hot-search-task',
