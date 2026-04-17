@@ -127,6 +127,29 @@ const SKILLS_REGISTRY = [
     tags: ['news', 'toutiao', '资讯'],
     command: 'dhf-toutiao-news-task'
   },
+  // 内容发布类
+  {
+    id: 'dhf-juejin-publish-task',
+    name: '掘金文章发布',
+    description: '自动发布文章到掘金平台',
+    category: '发布',
+    version: '1.0.0',
+    dependencies: [],
+    size: '2MB',
+    tags: ['publish', 'juejin', '文章'],
+    command: 'dhf-juejin-publish-task'
+  },
+  {
+    id: 'dhf-zhihu-video-publish-task',
+    name: '知乎视频发布',
+    description: '自动发布视频笔记到知乎平台',
+    category: '发布',
+    version: '1.0.0',
+    dependencies: [],
+    size: '2MB',
+    tags: ['publish', 'zhihu', '视频'],
+    command: 'dhf-zhihu-video-publish-task'
+  },
   // 搜索类
   {
     id: 'dhf-douyin-hot-search-task',
