@@ -172,6 +172,17 @@ const SKILLS_REGISTRY = [
     tags: ['publish', 'toutiao', '视频'],
     command: 'dhf-toutiao-video-publish-task'
   },
+  {
+    id: 'dhf-weibo-video-publish-task',
+    name: '微博视频发布',
+    description: '自动发布视频笔记到微博平台',
+    category: '发布',
+    version: '1.0.0',
+    dependencies: [],
+    size: '2MB',
+    tags: ['publish', 'weibo', '视频'],
+    command: 'dhf-weibo-video-publish-task'
+  },
   // 搜索类
   {
     id: 'dhf-douyin-hot-search-task',
